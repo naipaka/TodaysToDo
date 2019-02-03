@@ -1,1 +1,2 @@
-# TodaysToDo
+# TodaysToDoApp
+リポジトリの説明です。
