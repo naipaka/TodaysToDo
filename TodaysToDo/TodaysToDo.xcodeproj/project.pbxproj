@@ -8,24 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		919D26302206810400C7B7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D262F2206810400C7B7C6 /* AppDelegate.swift */; };
-		919D26322206810400C7B7C6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D26312206810400C7B7C6 /* FirstViewController.swift */; };
-		919D26342206810400C7B7C6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D26332206810400C7B7C6 /* SecondViewController.swift */; };
+		919D26322206810400C7B7C6 /* InboxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D26312206810400C7B7C6 /* InboxViewController.swift */; };
+		919D26342206810400C7B7C6 /* ToDoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D26332206810400C7B7C6 /* ToDoViewController.swift */; };
 		919D26372206810400C7B7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919D26352206810400C7B7C6 /* Main.storyboard */; };
 		919D26392206810500C7B7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919D26382206810500C7B7C6 /* Assets.xcassets */; };
 		919D263C2206810500C7B7C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919D263A2206810500C7B7C6 /* LaunchScreen.storyboard */; };
-		919D26442206872800C7B7C6 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D26432206872800C7B7C6 /* ThirdViewController.swift */; };
+		919D26442206872800C7B7C6 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D26432206872800C7B7C6 /* CalendarViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		919D262C2206810400C7B7C6 /* TodaysToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodaysToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		919D262F2206810400C7B7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		919D26312206810400C7B7C6 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		919D26332206810400C7B7C6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		919D26312206810400C7B7C6 /* InboxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InboxViewController.swift; sourceTree = "<group>"; };
+		919D26332206810400C7B7C6 /* ToDoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDoViewController.swift; sourceTree = "<group>"; };
 		919D26362206810400C7B7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		919D26382206810500C7B7C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		919D263B2206810500C7B7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		919D263D2206810500C7B7C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		919D26432206872800C7B7C6 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		919D26432206872800C7B7C6 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +59,9 @@
 			isa = PBXGroup;
 			children = (
 				919D262F2206810400C7B7C6 /* AppDelegate.swift */,
-				919D26312206810400C7B7C6 /* FirstViewController.swift */,
-				919D26332206810400C7B7C6 /* SecondViewController.swift */,
-				919D26432206872800C7B7C6 /* ThirdViewController.swift */,
+				919D26312206810400C7B7C6 /* InboxViewController.swift */,
+				919D26332206810400C7B7C6 /* ToDoViewController.swift */,
+				919D26432206872800C7B7C6 /* CalendarViewController.swift */,
 				919D26352206810400C7B7C6 /* Main.storyboard */,
 				919D26382206810500C7B7C6 /* Assets.xcassets */,
 				919D263A2206810500C7B7C6 /* LaunchScreen.storyboard */,
@@ -141,10 +141,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				919D26342206810400C7B7C6 /* SecondViewController.swift in Sources */,
+				919D26342206810400C7B7C6 /* ToDoViewController.swift in Sources */,
 				919D26302206810400C7B7C6 /* AppDelegate.swift in Sources */,
-				919D26442206872800C7B7C6 /* ThirdViewController.swift in Sources */,
-				919D26322206810400C7B7C6 /* FirstViewController.swift in Sources */,
+				919D26442206872800C7B7C6 /* CalendarViewController.swift in Sources */,
+				919D26322206810400C7B7C6 /* InboxViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
