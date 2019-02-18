@@ -1,5 +1,5 @@
 //
-//  SecondViewController.swift
+//  FirstViewController.swift
 //  TodaysToDo
 //
 //  Created by rMac on 2019/02/03.
@@ -9,11 +9,7 @@
 import UIKit
 import RealmSwift
 
-<<<<<<< HEAD:TodaysToDo/TodaysToDo/ToDoViewController.swift
-class ToDoViewController: UIViewController {
-=======
 class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
->>>>>>> inbox commit:TodaysToDo/TodaysToDo/FirstViewController.swift
 
     // キーボード出現ボタン
     @IBOutlet weak var showKeyboardButton: UIButton!
@@ -40,9 +36,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-<<<<<<< HEAD:TodaysToDo/TodaysToDo/ToDoViewController.swift
-        // Do any additional setup after loading the view, typically from a nib.
-=======
         addButton.titleLabel!.adjustsFontSizeToFitWidth = true
         
         todoListTableView.delegate = self
@@ -226,7 +219,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //submitFormのbottomの制約を元に戻す
         self.submitFormBottom.constant = -submitFormY
         self.view.layoutIfNeeded()
->>>>>>> inbox commit:TodaysToDo/TodaysToDo/FirstViewController.swift
     }
 
 

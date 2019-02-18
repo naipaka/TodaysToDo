@@ -13,23 +13,11 @@
         <!--Inbox-->
         <scene sceneID="hNz-n2-bh7">
             <objects>
-                <viewController id="9pv-A4-QxB" customClass="InboxViewController" customModule="TodaysToDo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="9pv-A4-QxB" customClass="FirstViewController" customModule="TodaysToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tsR-hK-woN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-<<<<<<< HEAD
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WOL-5p-1iE">
-                                <rect key="frame" x="155" y="483" width="64" height="64"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="addBotton"/>
-                                <connections>
-                                    <action selector="addToDo:" destination="9pv-A4-QxB" eventType="touchUpInside" id="YVN-j0-4hS"/>
-                                </connections>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-=======
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rmg-SM-zWn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
                                 <subviews>
@@ -139,7 +127,6 @@
                             <constraint firstItem="Rmg-SM-zWn" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="wpx-ji-ObG"/>
                             <constraint firstItem="Y2C-aN-SMj" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="zId-VN-lyL"/>
                         </constraints>
->>>>>>> inbox commit
                         <viewLayoutGuide key="safeArea" id="PQr-Ze-W5v"/>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="HXQ-Mv-R1p" appends="YES" id="B0S-BP-glP"/>
@@ -167,16 +154,12 @@
                     </connections>
                 </panGestureRecognizer>
             </objects>
-<<<<<<< HEAD
-            <point key="canvasLocation" x="749.60000000000002" y="-498.80059970014997"/>
-=======
             <point key="canvasLocation" x="749.60000000000002" y="-459.22038980509751"/>
->>>>>>> inbox commit
         </scene>
         <!--Today-->
         <scene sceneID="wg7-f3-ORb">
             <objects>
-                <viewController id="8rJ-Kc-sve" customClass="ToDoViewController" customModule="TodaysToDo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8rJ-Kc-sve" customClass="SecondViewController" customModule="TodaysToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="QS5-Rx-YEW">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -213,7 +196,7 @@
         <!--Calendar-->
         <scene sceneID="d9w-1s-xf2">
             <objects>
-                <viewController id="dhq-dR-g6A" customClass="CalendarViewController" customModule="TodaysToDo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="dhq-dR-g6A" customClass="ThirdViewController" customModule="TodaysToDo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cTQ-90-MCA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -269,17 +252,10 @@
         </scene>
     </scenes>
     <resources>
-<<<<<<< HEAD
-        <image name="Calendar" width="32" height="32"/>
-        <image name="Inbox" width="32" height="32"/>
-        <image name="ToDo" width="32" height="32"/>
-        <image name="addBotton" width="64" height="64"/>
-=======
         <image name="Calendar" width="48" height="48"/>
         <image name="Inbox" width="48" height="48"/>
         <image name="ShowKeyboardButton" width="180" height="180"/>
         <image name="ShowKeyboardButtonBack" width="180" height="180"/>
         <image name="ToDo" width="48" height="48"/>
->>>>>>> inbox commit
     </resources>
 </document>

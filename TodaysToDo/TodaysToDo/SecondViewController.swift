@@ -1,5 +1,5 @@
 //
-//  FirstViewController.swift
+//  SecondViewController.swift
 //  TodaysToDo
 //
 //  Created by rMac on 2019/02/03.
@@ -8,16 +8,11 @@
 
 import UIKit
 
-class InboxViewController: UIViewController {
+class SecondViewController: UIViewController {
 
-    @IBAction func addToDo(_ sender: Any) {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
     }
 
 
