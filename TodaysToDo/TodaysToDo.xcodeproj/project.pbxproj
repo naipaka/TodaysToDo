@@ -17,9 +17,9 @@
 		919D26442206872800C7B7C6 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D26432206872800C7B7C6 /* ThirdViewController.swift */; };
 		91C71104221AB07D00AE2C9C /* inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C71103221AB07D00AE2C9C /* inspectable.swift */; };
 		91C71106221AB47900AE2C9C /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C71105221AB47900AE2C9C /* ToDo.swift */; };
-		91C7110E221AC0D300AE2C9C /* ToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C7110C221AC0D300AE2C9C /* ToDoListTableViewCell.swift */; };
-		91C7110F221AC0D300AE2C9C /* ToDoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91C7110D221AC0D300AE2C9C /* ToDoListTableViewCell.xib */; };
 		91C71119221AC37800AE2C9C /* DatePickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C71118221AC37800AE2C9C /* DatePickerKeyboard.swift */; };
+		91E6FEDA221AF852000C9C15 /* ToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6FED9221AF852000C9C15 /* ToDoListTableViewCell.swift */; };
+		91E6FEDE221AF8E2000C9C15 /* ToDoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E6FEDD221AF8E2000C9C15 /* ToDoListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,9 +37,9 @@
 		919D26432206872800C7B7C6 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
 		91C71103221AB07D00AE2C9C /* inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inspectable.swift; sourceTree = "<group>"; };
 		91C71105221AB47900AE2C9C /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
-		91C7110C221AC0D300AE2C9C /* ToDoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ToDoListTableViewCell.swift; path = ../../../../../.Trash/ToDoListTableViewCell.swift; sourceTree = "<group>"; };
-		91C7110D221AC0D300AE2C9C /* ToDoListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ToDoListTableViewCell.xib; path = ../../../../../.Trash/ToDoListTableViewCell.xib; sourceTree = "<group>"; };
 		91C71118221AC37800AE2C9C /* DatePickerKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerKeyboard.swift; sourceTree = "<group>"; };
+		91E6FED9221AF852000C9C15 /* ToDoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewCell.swift; sourceTree = "<group>"; };
+		91E6FEDD221AF8E2000C9C15 /* ToDoListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToDoListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,8 +99,8 @@
 				919D26312206810400C7B7C6 /* FirstViewController.swift */,
 				919D26332206810400C7B7C6 /* SecondViewController.swift */,
 				919D26432206872800C7B7C6 /* ThirdViewController.swift */,
-				91C7110C221AC0D300AE2C9C /* ToDoListTableViewCell.swift */,
-				91C7110D221AC0D300AE2C9C /* ToDoListTableViewCell.xib */,
+				91E6FED9221AF852000C9C15 /* ToDoListTableViewCell.swift */,
+				91E6FEDD221AF8E2000C9C15 /* ToDoListTableViewCell.xib */,
 				919D26352206810400C7B7C6 /* Main.storyboard */,
 				919D26382206810500C7B7C6 /* Assets.xcassets */,
 				919D263A2206810500C7B7C6 /* LaunchScreen.storyboard */,
@@ -172,7 +172,7 @@
 				919D263C2206810500C7B7C6 /* LaunchScreen.storyboard in Resources */,
 				919D26392206810500C7B7C6 /* Assets.xcassets in Resources */,
 				919D26372206810400C7B7C6 /* Main.storyboard in Resources */,
-				91C7110F221AC0D300AE2C9C /* ToDoListTableViewCell.xib in Resources */,
+				91E6FEDE221AF8E2000C9C15 /* ToDoListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -233,9 +233,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				91C71119221AC37800AE2C9C /* DatePickerKeyboard.swift in Sources */,
+				91E6FEDA221AF852000C9C15 /* ToDoListTableViewCell.swift in Sources */,
 				919D26342206810400C7B7C6 /* SecondViewController.swift in Sources */,
 				919D26302206810400C7B7C6 /* AppDelegate.swift in Sources */,
-				91C7110E221AC0D300AE2C9C /* ToDoListTableViewCell.swift in Sources */,
 				91C71104221AB07D00AE2C9C /* inspectable.swift in Sources */,
 				91C71106221AB47900AE2C9C /* ToDo.swift in Sources */,
 				919D26442206872800C7B7C6 /* ThirdViewController.swift in Sources */,
