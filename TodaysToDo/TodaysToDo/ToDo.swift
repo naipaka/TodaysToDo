@@ -10,10 +10,12 @@ import Foundation
 import RealmSwift
 
 class ToDo: Object {
-    // ToDo
-    @objc dynamic var ToDo = ""
+    // todo
+    @objc dynamic var todo = ""
     // 開始日時
     @objc dynamic var startDate = ""
     // 追加日時
     @objc dynamic var addDate = ""
+    // 実行済み
+    @objc dynamic var done = true
 }

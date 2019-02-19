@@ -101,7 +101,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.todoText.addGestureRecognizer(tapCellToDo)
         
         // カスタムセル内のプロパティ設定
-        cell.todoText.text = todoList[indexPath.row].ToDo
+        cell.todoText.text = todoList[indexPath.row].todo
         cell.todoText.adjustsFontSizeToFitWidth = true
         return cell
     }
@@ -131,7 +131,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if todoTextField.text != ""  {
             if addButton.titleLabel?.text == "追加" {
                 let newToDo = ToDo()
-                newToDo.ToDo = todoTextField.text!
+                newToDo.todo = todoTextField.text!
                 
                 do{
                     let realm = try Realm()
@@ -146,7 +146,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 do{
                     let realm = try Realm()
                     try realm.write {
-                        self.todoList[cellIndex].ToDo = todoTextField.text!
+                        self.todoList[cellIndex].todo = todoTextField.text!
                     }
                 }catch{
                 }
@@ -162,7 +162,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc func editToDo(_ sender: UITapGestureRecognizer) {
         let row = sender.view?.tag
         cellIndex = row!
-        todoTextField.text = todoList[row!].ToDo
+        todoTextField.text = todoList[row!].todo
         addButton.setTitle("変更", for: .normal)
         todoTextField.becomeFirstResponder()
         selectKeyboard = 1
