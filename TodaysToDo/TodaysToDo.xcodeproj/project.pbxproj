@@ -8,38 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		2A019A9AC3802E46ACD88DB6 /* Pods_TodaysToDo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 23AA41342D1548AABBAA903E /* Pods_TodaysToDo.framework */; };
-		919D26302206810400C7B7C6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D262F2206810400C7B7C6 /* AppDelegate.swift */; };
-		919D26322206810400C7B7C6 /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D26312206810400C7B7C6 /* FirstViewController.swift */; };
-		919D26342206810400C7B7C6 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D26332206810400C7B7C6 /* SecondViewController.swift */; };
+		9100FAE522219BBD0077AA9B /* DatePickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9100FAD922219BBD0077AA9B /* DatePickerKeyboard.swift */; };
+		9100FAE622219BBD0077AA9B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9100FADA22219BBD0077AA9B /* AppDelegate.swift */; };
+		9100FAE722219BBD0077AA9B /* inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9100FADB22219BBD0077AA9B /* inspectable.swift */; };
+		9100FAE822219BBD0077AA9B /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9100FADD22219BBD0077AA9B /* ThirdViewController.swift */; };
+		9100FAE922219BBD0077AA9B /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9100FADE22219BBD0077AA9B /* FirstViewController.swift */; };
+		9100FAEA22219BBD0077AA9B /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9100FADF22219BBD0077AA9B /* SecondViewController.swift */; };
+		9100FAEB22219BBD0077AA9B /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9100FAE122219BBD0077AA9B /* ToDo.swift */; };
+		9100FAEC22219BBD0077AA9B /* ToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9100FAE322219BBD0077AA9B /* ToDoListTableViewCell.swift */; };
+		9100FAED22219BBD0077AA9B /* ToDoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9100FAE422219BBD0077AA9B /* ToDoListTableViewCell.xib */; };
 		919D26372206810400C7B7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919D26352206810400C7B7C6 /* Main.storyboard */; };
 		919D26392206810500C7B7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919D26382206810500C7B7C6 /* Assets.xcassets */; };
 		919D263C2206810500C7B7C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919D263A2206810500C7B7C6 /* LaunchScreen.storyboard */; };
-		919D26442206872800C7B7C6 /* ThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919D26432206872800C7B7C6 /* ThirdViewController.swift */; };
-		91C71104221AB07D00AE2C9C /* inspectable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C71103221AB07D00AE2C9C /* inspectable.swift */; };
-		91C71106221AB47900AE2C9C /* ToDo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C71105221AB47900AE2C9C /* ToDo.swift */; };
-		91C71119221AC37800AE2C9C /* DatePickerKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C71118221AC37800AE2C9C /* DatePickerKeyboard.swift */; };
-		91E6FEDA221AF852000C9C15 /* ToDoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E6FED9221AF852000C9C15 /* ToDoListTableViewCell.swift */; };
-		91E6FEDE221AF8E2000C9C15 /* ToDoListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 91E6FEDD221AF8E2000C9C15 /* ToDoListTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		23AA41342D1548AABBAA903E /* Pods_TodaysToDo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TodaysToDo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5378E881C28D24B30336F433 /* Pods-TodaysToDo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodaysToDo.debug.xcconfig"; path = "Target Support Files/Pods-TodaysToDo/Pods-TodaysToDo.debug.xcconfig"; sourceTree = "<group>"; };
 		61EDC7BCB854AD81E5126D2B /* Pods-TodaysToDo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TodaysToDo.release.xcconfig"; path = "Target Support Files/Pods-TodaysToDo/Pods-TodaysToDo.release.xcconfig"; sourceTree = "<group>"; };
+		9100FAD922219BBD0077AA9B /* DatePickerKeyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DatePickerKeyboard.swift; sourceTree = "<group>"; };
+		9100FADA22219BBD0077AA9B /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		9100FADB22219BBD0077AA9B /* inspectable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = inspectable.swift; sourceTree = "<group>"; };
+		9100FADD22219BBD0077AA9B /* ThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
+		9100FADE22219BBD0077AA9B /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
+		9100FADF22219BBD0077AA9B /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		9100FAE122219BBD0077AA9B /* ToDo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
+		9100FAE322219BBD0077AA9B /* ToDoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewCell.swift; sourceTree = "<group>"; };
+		9100FAE422219BBD0077AA9B /* ToDoListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToDoListTableViewCell.xib; sourceTree = "<group>"; };
 		919D262C2206810400C7B7C6 /* TodaysToDo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodaysToDo.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		919D262F2206810400C7B7C6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		919D26312206810400C7B7C6 /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		919D26332206810400C7B7C6 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		919D26362206810400C7B7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		919D26382206810500C7B7C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		919D263B2206810500C7B7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		919D263D2206810500C7B7C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		919D26432206872800C7B7C6 /* ThirdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdViewController.swift; sourceTree = "<group>"; };
-		91C71103221AB07D00AE2C9C /* inspectable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = inspectable.swift; sourceTree = "<group>"; };
-		91C71105221AB47900AE2C9C /* ToDo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToDo.swift; sourceTree = "<group>"; };
-		91C71118221AC37800AE2C9C /* DatePickerKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerKeyboard.swift; sourceTree = "<group>"; };
-		91E6FED9221AF852000C9C15 /* ToDoListTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToDoListTableViewCell.swift; sourceTree = "<group>"; };
-		91E6FEDD221AF8E2000C9C15 /* ToDoListTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ToDoListTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +71,43 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		9100FAD822219BBD0077AA9B /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				9100FAD922219BBD0077AA9B /* DatePickerKeyboard.swift */,
+				9100FADA22219BBD0077AA9B /* AppDelegate.swift */,
+				9100FADB22219BBD0077AA9B /* inspectable.swift */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		9100FADC22219BBD0077AA9B /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				9100FADD22219BBD0077AA9B /* ThirdViewController.swift */,
+				9100FADE22219BBD0077AA9B /* FirstViewController.swift */,
+				9100FADF22219BBD0077AA9B /* SecondViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		9100FAE022219BBD0077AA9B /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9100FAE122219BBD0077AA9B /* ToDo.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		9100FAE222219BBD0077AA9B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9100FAE322219BBD0077AA9B /* ToDoListTableViewCell.swift */,
+				9100FAE422219BBD0077AA9B /* ToDoListTableViewCell.xib */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		919D26232206810400C7B7C6 = {
 			isa = PBXGroup;
 			children = (
@@ -92,15 +129,10 @@
 		919D262E2206810400C7B7C6 /* TodaysToDo */ = {
 			isa = PBXGroup;
 			children = (
-				919D262F2206810400C7B7C6 /* AppDelegate.swift */,
-				91C71103221AB07D00AE2C9C /* inspectable.swift */,
-				91C71118221AC37800AE2C9C /* DatePickerKeyboard.swift */,
-				91C71105221AB47900AE2C9C /* ToDo.swift */,
-				919D26312206810400C7B7C6 /* FirstViewController.swift */,
-				919D26332206810400C7B7C6 /* SecondViewController.swift */,
-				919D26432206872800C7B7C6 /* ThirdViewController.swift */,
-				91E6FED9221AF852000C9C15 /* ToDoListTableViewCell.swift */,
-				91E6FEDD221AF8E2000C9C15 /* ToDoListTableViewCell.xib */,
+				9100FAD822219BBD0077AA9B /* Commons */,
+				9100FAE022219BBD0077AA9B /* Models */,
+				9100FAE222219BBD0077AA9B /* Views */,
+				9100FADC22219BBD0077AA9B /* Controllers */,
 				919D26352206810400C7B7C6 /* Main.storyboard */,
 				919D26382206810500C7B7C6 /* Assets.xcassets */,
 				919D263A2206810500C7B7C6 /* LaunchScreen.storyboard */,
@@ -172,7 +204,7 @@
 				919D263C2206810500C7B7C6 /* LaunchScreen.storyboard in Resources */,
 				919D26392206810500C7B7C6 /* Assets.xcassets in Resources */,
 				919D26372206810400C7B7C6 /* Main.storyboard in Resources */,
-				91E6FEDE221AF8E2000C9C15 /* ToDoListTableViewCell.xib in Resources */,
+				9100FAED22219BBD0077AA9B /* ToDoListTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,14 +264,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				91C71119221AC37800AE2C9C /* DatePickerKeyboard.swift in Sources */,
-				91E6FEDA221AF852000C9C15 /* ToDoListTableViewCell.swift in Sources */,
-				919D26342206810400C7B7C6 /* SecondViewController.swift in Sources */,
-				919D26302206810400C7B7C6 /* AppDelegate.swift in Sources */,
-				91C71104221AB07D00AE2C9C /* inspectable.swift in Sources */,
-				91C71106221AB47900AE2C9C /* ToDo.swift in Sources */,
-				919D26442206872800C7B7C6 /* ThirdViewController.swift in Sources */,
-				919D26322206810400C7B7C6 /* FirstViewController.swift in Sources */,
+				9100FAEA22219BBD0077AA9B /* SecondViewController.swift in Sources */,
+				9100FAEB22219BBD0077AA9B /* ToDo.swift in Sources */,
+				9100FAE922219BBD0077AA9B /* FirstViewController.swift in Sources */,
+				9100FAEC22219BBD0077AA9B /* ToDoListTableViewCell.swift in Sources */,
+				9100FAE622219BBD0077AA9B /* AppDelegate.swift in Sources */,
+				9100FAE722219BBD0077AA9B /* inspectable.swift in Sources */,
+				9100FAE822219BBD0077AA9B /* ThirdViewController.swift in Sources */,
+				9100FAE522219BBD0077AA9B /* DatePickerKeyboard.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
