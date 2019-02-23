@@ -5,5 +5,5 @@
 xcuserdata
 
 #CocoaPod
-/Pods/
+Pods/*
 
