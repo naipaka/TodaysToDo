@@ -7,3 +7,6 @@ xcuserdata
 #CocoaPod
 TodaysToDo/Pods/
 
+#bundle
+vendor/bundle
+
