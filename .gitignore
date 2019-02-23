@@ -8,5 +8,5 @@ xcuserdata
 TodaysToDo/Pods/
 
 #bundle
-vendor/bundle
+TodaysToDo/vendor/bundle
 
