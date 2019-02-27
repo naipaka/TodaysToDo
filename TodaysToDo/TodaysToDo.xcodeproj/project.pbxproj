@@ -84,9 +84,9 @@
 		9100FADC22219BBD0077AA9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				9100FADD22219BBD0077AA9B /* ThirdViewController.swift */,
 				9100FADE22219BBD0077AA9B /* FirstViewController.swift */,
 				9100FADF22219BBD0077AA9B /* SecondViewController.swift */,
+				9100FADD22219BBD0077AA9B /* ThirdViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
