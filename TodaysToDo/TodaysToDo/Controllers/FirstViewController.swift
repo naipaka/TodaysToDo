@@ -41,6 +41,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         todoListTableView.delegate = self
         todoListTableView.dataSource = self
         
+        // tableViewをスワイプ時、keyboardを下げる
+        todoListTableView.keyboardDismissMode = .onDrag
+        
         // Buttonにジェスチャーを追加
         let tapButton: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(addToDo(_:)))
         self.addButton.isUserInteractionEnabled = true
@@ -187,7 +190,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         todoTextField.text = ""
         view.endEditing(true)
         showKeyboardButton.isEnabled = true
-        selectKeyboard = 0
     }
     
     // キーボードのフレーム変化時の処理
@@ -219,6 +221,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         //submitFormのbottomの制約を元に戻す
         self.submitFormBottom.constant = -submitFormY
         self.view.layoutIfNeeded()
+        selectKeyboard = 0
     }
 
 

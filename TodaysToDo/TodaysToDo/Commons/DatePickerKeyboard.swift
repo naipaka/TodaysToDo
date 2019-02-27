@@ -30,7 +30,6 @@ class DatePickerKeyboard: UITextField {
         
         // textFieldのtextに日付を表示する
         setText()
-        
         inputView = datePicker
         inputAccessoryView = createToolbar()
     }
@@ -43,10 +42,9 @@ class DatePickerKeyboard: UITextField {
         let space = UIBarButtonItem(barButtonSystemItem: .fixedSpace, target: self, action: nil)
         space.width = 12
         let flexSpaceItem = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: self, action: nil)
-        let todayButtonItem = UIBarButtonItem(title: "今", style: .done, target: self, action: #selector(todayPicker))
         let doneButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(donePicker))
         
-        let toolbarItems = [flexSpaceItem, todayButtonItem, doneButtonItem, space]
+        let toolbarItems = [flexSpaceItem, doneButtonItem, space]
         
         toolbar.setItems(toolbarItems, animated: true)
         
@@ -56,11 +54,6 @@ class DatePickerKeyboard: UITextField {
     // キーボードの完了ボタンタップ時に呼ばれる
     @objc private func donePicker() {
         resignFirstResponder()
-    }
-    // キーボードの今日ボタンタップ時に呼ばれる
-    @objc private func todayPicker() {
-        datePicker.date = Date()
-        setText()
     }
     
     // datePickerの日付をtextFieldのtextに反映させる

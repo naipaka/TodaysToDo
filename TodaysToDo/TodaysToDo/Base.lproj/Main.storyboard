@@ -42,17 +42,24 @@
                                     <constraint firstItem="3I0-ex-mJJ" firstAttribute="top" secondItem="Rmg-SM-zWn" secondAttribute="top" constant="32" id="txn-Mc-1bh"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Hik-l0-sgC">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hik-l0-sgC">
                                 <rect key="frame" x="16" y="108" width="343" height="510"/>
                                 <subviews>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jpe-0b-uOy">
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="jpe-0b-uOy">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="510"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="343" id="Uqt-XH-U5L"/>
+                                            <constraint firstAttribute="height" constant="510" id="zfK-lX-nPP"/>
+                                        </constraints>
                                     </tableView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="jpe-0b-uOy" secondAttribute="bottom" id="5LP-uq-U3K"/>
+                                    <constraint firstItem="jpe-0b-uOy" firstAttribute="leading" secondItem="Hik-l0-sgC" secondAttribute="leading" id="KEd-n4-Def"/>
                                     <constraint firstAttribute="height" constant="510" id="MfJ-aG-89y"/>
+                                    <constraint firstAttribute="trailing" secondItem="jpe-0b-uOy" secondAttribute="trailing" id="N0G-5v-C11"/>
+                                    <constraint firstItem="jpe-0b-uOy" firstAttribute="top" secondItem="Hik-l0-sgC" secondAttribute="top" id="abe-C3-65B"/>
                                     <constraint firstAttribute="width" constant="343" id="ce2-9H-Obi"/>
                                 </constraints>
                             </scrollView>
