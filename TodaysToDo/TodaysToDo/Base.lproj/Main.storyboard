@@ -74,7 +74,7 @@
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y2C-aN-SMj">
-                                <rect key="frame" x="0.0" y="638" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="667" width="375" height="50"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qqQ-V3-eKc">
                                         <rect key="frame" x="8" y="10" width="302" height="30"/>
@@ -117,13 +117,13 @@
                         <constraints>
                             <constraint firstItem="Rmg-SM-zWn" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="2Y3-8s-IrK"/>
                             <constraint firstItem="Y2C-aN-SMj" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="2mg-Xw-1Mi"/>
-                            <constraint firstItem="PQr-Ze-W5v" firstAttribute="bottom" secondItem="Y2C-aN-SMj" secondAttribute="bottom" constant="-70" id="3gi-EU-zPT"/>
                             <constraint firstItem="Hik-l0-sgC" firstAttribute="bottom" secondItem="PQr-Ze-W5v" secondAttribute="bottom" id="afd-Ju-6hZ"/>
                             <constraint firstItem="PQr-Ze-W5v" firstAttribute="trailing" secondItem="Hik-l0-sgC" secondAttribute="trailing" constant="16" id="eRW-IO-Dz2"/>
                             <constraint firstItem="Rmg-SM-zWn" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" id="epO-F6-og0"/>
                             <constraint firstItem="Hik-l0-sgC" firstAttribute="top" secondItem="Rmg-SM-zWn" secondAttribute="bottom" constant="8" id="oj0-4R-AwT"/>
                             <constraint firstItem="Hik-l0-sgC" firstAttribute="leading" secondItem="PQr-Ze-W5v" secondAttribute="leading" constant="16" id="qea-JM-FYz"/>
                             <constraint firstItem="Hik-l0-sgC" firstAttribute="top" secondItem="Rmg-SM-zWn" secondAttribute="bottom" constant="8" id="u5k-WY-2yg"/>
+                            <constraint firstAttribute="bottom" secondItem="Y2C-aN-SMj" secondAttribute="bottom" constant="-50" id="wdP-8Y-k8c"/>
                             <constraint firstItem="Rmg-SM-zWn" firstAttribute="top" secondItem="tsR-hK-woN" secondAttribute="top" id="wpx-ji-ObG"/>
                             <constraint firstItem="Y2C-aN-SMj" firstAttribute="trailing" secondItem="PQr-Ze-W5v" secondAttribute="trailing" id="zId-VN-lyL"/>
                         </constraints>
@@ -137,7 +137,7 @@
                         <outlet property="addButton" destination="S3Y-92-JTU" id="H67-cv-95G"/>
                         <outlet property="showKeyboardButton" destination="Jzi-gY-aHa" id="che-LN-nkd"/>
                         <outlet property="submitForm" destination="Y2C-aN-SMj" id="Q37-dE-oHO"/>
-                        <outlet property="submitFormBottom" destination="3gi-EU-zPT" id="DOa-yy-EYI"/>
+                        <outlet property="submitFormBottom" destination="wdP-8Y-k8c" id="OBT-ub-cm5"/>
                         <outlet property="todoListTableView" destination="jpe-0b-uOy" id="or5-No-LDR"/>
                         <outlet property="todoTextField" destination="qqQ-V3-eKc" id="uQG-87-CPw"/>
                     </connections>
@@ -145,7 +145,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W5J-7L-Pyd" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="HXQ-Mv-R1p">
                     <connections>
-                        <action selector="closeKeyboard:" destination="9pv-A4-QxB" id="yAC-aZ-bdK"/>
+                        <action selector="hideKeyboard:" destination="9pv-A4-QxB" id="RJF-fQ-4QH"/>
                     </connections>
                 </tapGestureRecognizer>
                 <panGestureRecognizer minimumNumberOfTouches="1" id="DeE-Xq-Z5T">

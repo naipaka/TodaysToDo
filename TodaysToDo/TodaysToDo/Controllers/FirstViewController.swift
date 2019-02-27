@@ -26,7 +26,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     var todoList: Results<ToDo>!
     // 送信フォームの最小Y座標
-    var submitFormY:CGFloat = 0.0
+    var submitFormY:CGFloat = -50
     // カスタムセルの高さ
     let cellHeigh:CGFloat = 150
     // カスタムセルの行番号
@@ -64,22 +64,15 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // 通知センターの取得
         let notification =  NotificationCenter.default
         
-        // keyboardのframe変化時
+        // keyboard登場前
         notification.addObserver(self,
-                                 selector: #selector(self.keyboardChangeFrame(_:)),
-                                 name: UIResponder.keyboardDidChangeFrameNotification,
-                                 object: nil)
-        
-        // keyboard登場時
-        notification.addObserver(self,
-                                 selector: #selector(self.keyboardWillShow(_:)),
+                                 selector: #selector(self.willShowSubmitForm(_:)),
                                  name: UIResponder.keyboardWillShowNotification,
                                  object: nil)
-        
-        // keyboard退場時
+        // keyboard退場前
         notification.addObserver(self,
-                                 selector: #selector(self.keyboardDidHide(_:)),
-                                 name: UIResponder.keyboardDidHideNotification,
+                                 selector: #selector(self.willHideSubmitForm(_:)),
+                                 name: UIResponder.keyboardWillHideNotification,
                                  object: nil)
     }
     
@@ -179,51 +172,60 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // キーボード出現
     @IBAction func showKeyboard(_ sender: Any) {
+        selectKeyboard = 1
         addButton.setTitle("追加", for: .normal)
         todoTextField.becomeFirstResponder()
-        showKeyboardButton.isEnabled = false
-        selectKeyboard = 1
     }
     
     // キーボード退出
-    @IBAction func closeKeyboard(_ sender: Any) {
+    @IBAction func hideKeyboard(_ sender: Any) {
         todoTextField.text = ""
         view.endEditing(true)
-        showKeyboardButton.isEnabled = true
     }
     
-    // キーボードのフレーム変化時の処理
-    @objc func keyboardChangeFrame(_ notification: NSNotification) {
+    // submitFormを追従出現させる
+    @objc func willShowSubmitForm(_ notification: NSNotification) {
         if selectKeyboard == 1 {
-            // keyboardのframeを取得
-            let userInfo = (notification as NSNotification).userInfo!
-            let keyboardFrame = (userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue).cgRectValue
+            let showKeyboardTime = notification.getShowKeyboardTime()
+            let keybordFrameMinY = notification.getKeybordFrameMinY()
+            let submitFormMaxY = self.submitForm.frame.maxY
+            let diff = submitFormMaxY - keybordFrameMinY!
             
-            // submitFormの最大Y座標と、keybordの最小Y座標の差分を計算
-            let diff = self.submitForm.frame.maxY -  keyboardFrame.minY
-            
-            if (diff > 0) {
-                //submitFormのbottomの制約に差分をプラス
-                self.submitFormBottom.constant += diff
+            self.view.layoutIfNeeded()
+            self.submitFormBottom.constant += diff
+            UIView.animate(withDuration: showKeyboardTime!, animations: { () -> Void in
                 self.view.layoutIfNeeded()
-            }
+            })
         }
+        showKeyboardButton.isEnabled = false
     }
     
-    // キーボード登場時の処理
-    @objc func keyboardWillShow(_ notification: NSNotification) {
-        // 現在のsubmitFormの最大Y座標を保存
-        submitFormY = self.submitForm.frame.maxY
-    }
-    
-    //キーボードが退場時の処理
-    @objc func keyboardDidHide(_ notification: NSNotification) {
-        //submitFormのbottomの制約を元に戻す
-        self.submitFormBottom.constant = -submitFormY
+    // submitFormを追従退場させる
+    @objc func willHideSubmitForm(_ notification: NSNotification) {
+        let showKeyboardTime = notification.getShowKeyboardTime()
+        
         self.view.layoutIfNeeded()
+        self.submitFormBottom.constant = submitFormY
+        UIView.animate(withDuration: showKeyboardTime!,animations: { () -> Void in
+            self.view.layoutIfNeeded()
+        })
+        showKeyboardButton.isEnabled = true
         selectKeyboard = 0
     }
+}
 
-
+extension NSNotification{
+    // 表示されるキーボードの最小Y座標を取得
+    func getKeybordFrameMinY() -> CGFloat?{
+        let keyboardFrame:NSValue? = self.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        let keybordFrameMinY = keyboardFrame?.cgRectValue.minY
+        return keybordFrameMinY
+    }
+    
+    // キーボードの開く時間を取得
+    func getShowKeyboardTime() -> TimeInterval?{
+        let showKeyboardTime:TimeInterval? = self.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
+        return showKeyboardTime
+    }
 }
 
