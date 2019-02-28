@@ -62,7 +62,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         todoListTableView.reloadData()
         
         // 通知センターの登録
-        self.registerNotification()
+        registerNotification()
     }
     
     private func registerNotification() {
