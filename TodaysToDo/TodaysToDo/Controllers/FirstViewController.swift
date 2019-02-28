@@ -61,6 +61,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         todoListTableView.tableFooterView = UIView()
         todoListTableView.reloadData()
         
+        // 通知センターの登録
+        self.registerNotification()
+    }
+    
+    private func registerNotification() {
         // 通知センターの取得
         let notification =  NotificationCenter.default
         
@@ -213,19 +218,3 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         selectKeyboard = 0
     }
 }
-
-extension NSNotification{
-    // 表示されるキーボードの最小Y座標を取得
-    func getKeybordFrameMinY() -> CGFloat?{
-        let keyboardFrame:NSValue? = self.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
-        let keybordFrameMinY = keyboardFrame?.cgRectValue.minY
-        return keybordFrameMinY
-    }
-    
-    // キーボードの開く時間を取得
-    func getShowKeyboardTime() -> TimeInterval?{
-        let showKeyboardTime:TimeInterval? = self.userInfo?[UIResponder.keyboardAnimationDurationUserInfoKey] as? Double
-        return showKeyboardTime
-    }
-}
-

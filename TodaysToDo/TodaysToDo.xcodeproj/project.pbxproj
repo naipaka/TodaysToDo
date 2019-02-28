@@ -20,6 +20,7 @@
 		919D26372206810400C7B7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919D26352206810400C7B7C6 /* Main.storyboard */; };
 		919D26392206810500C7B7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919D26382206810500C7B7C6 /* Assets.xcassets */; };
 		919D263C2206810500C7B7C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919D263A2206810500C7B7C6 /* LaunchScreen.storyboard */; };
+		91FA7568222807E10026424A /* NSNotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA7567222807E10026424A /* NSNotification+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		919D26382206810500C7B7C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		919D263B2206810500C7B7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		919D263D2206810500C7B7C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91FA7567222807E10026424A /* NSNotification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +131,7 @@
 		919D262E2206810400C7B7C6 /* TodaysToDo */ = {
 			isa = PBXGroup;
 			children = (
+				91FA75662228076B0026424A /* Extension */,
 				9100FAD822219BBD0077AA9B /* Commons */,
 				9100FAE022219BBD0077AA9B /* Models */,
 				9100FAE222219BBD0077AA9B /* Views */,
@@ -139,6 +142,14 @@
 				919D263D2206810500C7B7C6 /* Info.plist */,
 			);
 			path = TodaysToDo;
+			sourceTree = "<group>";
+		};
+		91FA75662228076B0026424A /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				91FA7567222807E10026424A /* NSNotification+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,6 +283,7 @@
 				9100FAE722219BBD0077AA9B /* inspectable.swift in Sources */,
 				9100FAE822219BBD0077AA9B /* ThirdViewController.swift in Sources */,
 				9100FAE522219BBD0077AA9B /* DatePickerKeyboard.swift in Sources */,
+				91FA7568222807E10026424A /* NSNotification+Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
