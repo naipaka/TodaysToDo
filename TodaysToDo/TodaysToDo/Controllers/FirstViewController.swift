@@ -52,7 +52,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Realmからデータを取得
         do{
             let realm = try Realm()
-            let predicate = NSPredicate(format: "startDate = ''")
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
+            let predicate = NSPredicate(format: "startDateTime = ''")
             todoList = realm.objects(ToDo.self).filter(predicate)
         }catch{
         }
@@ -104,6 +105,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // カスタムセル内のプロパティ設定
         cell.todoText.text = todoList[indexPath.row].todo
         cell.todoText.adjustsFontSizeToFitWidth = true
+        
+        // セルの「設定」ボタン
+        cell.setStartDateTime.addTarget(self, action: #selector(setStartDateTime(_:)), for: .touchUpInside)
+        
         return cell
     }
     
@@ -216,5 +221,31 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         })
         showKeyboardButton.isEnabled = true
         selectKeyboard = 0
+    }
+    
+    // レコードに日付を設定する
+    @objc func setStartDateTime(_ sender: UIButton) {
+        
+        // ボタンが押されたcellを特定
+        let cell = sender.superview?.superview?.superview?.superview as! ToDoListTableViewCell
+        // cellのindex番号を取得
+        let row = todoListTableView.indexPath(for: cell)?.row
+        // Dateのフォーマットを設定
+        let f = DateFormatter()
+        f.dateStyle = .long
+        f.timeStyle = .short
+        f.locale = Locale(identifier: "ja")
+        let startDateTime = f.string(from: cell.startDateTime.getDate())
+        
+        // Realm内にstartDateを設定
+        do{
+            let realm = try Realm()
+            try realm.write {
+                self.todoList[row!].startDateTime = startDateTime
+            }
+        }catch{
+        }
+        
+        todoListTableView.reloadData()
     }
 }

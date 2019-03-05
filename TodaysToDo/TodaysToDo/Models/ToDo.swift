@@ -13,9 +13,9 @@ class ToDo: Object {
     // todo
     @objc dynamic var todo = ""
     // 開始日時
-    @objc dynamic var startDate = ""
+    @objc dynamic var startDateTime = ""
     // 追加日時
     @objc dynamic var addDate = ""
     // 実行済み
-    @objc dynamic var done = true
+    @objc dynamic var done = false
 }

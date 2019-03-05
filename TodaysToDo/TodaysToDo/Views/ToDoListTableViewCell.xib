@@ -135,6 +135,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="setStartDateTime" destination="UQz-UL-dD8" id="8qE-j1-FFw"/>
+                <outlet property="startDateTime" destination="Wnt-jq-0qD" id="lJj-a0-EcY"/>
                 <outlet property="todoText" destination="A1W-wb-uJQ" id="b7H-NM-A1R"/>
             </connections>
             <point key="canvasLocation" x="116.8" y="84.107946026986511"/>

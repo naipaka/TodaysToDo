@@ -11,6 +11,8 @@ import UIKit
 class ToDoListTableViewCell: UITableViewCell {
 
     @IBOutlet weak var todoText: UILabel!
+    @IBOutlet weak var startDateTime: DatePickerKeyboard!
+    @IBOutlet weak var setStartDateTime: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
