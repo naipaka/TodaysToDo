@@ -50,11 +50,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.addButton.addGestureRecognizer(tapButton)
         
         // Realmからデータを取得
-        do{
+        do {
             let realm = try Realm()
             let predicate = NSPredicate(format: "startDateTime = ''")
             todoList = realm.objects(ToDo.self).filter(predicate)
-        }catch{
+        } catch {
         }
         // tableViewにカスタムセルを登録
         todoListTableView.register(UINib(nibName: "ToDoListTableViewCell", bundle: nil), forCellReuseIdentifier: "ToDoListTableViewCell")
@@ -115,13 +115,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         if(editingStyle == UITableViewCell.EditingStyle.delete) {
             // Realm内のデータを削除
-            do{
+            do {
                 let realm = try Realm()
                 try realm.write {
                     realm.delete(self.todoList[indexPath.row])
                 }
                 tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
-            }catch{
+            } catch {
             }
         }
     }
@@ -138,22 +138,22 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 let newToDo = ToDo()
                 newToDo.todo = todoTextField.text!
                 
-                do{
+                do {
                     let realm = try Realm()
                     try realm.write({ () -> Void in
                         realm.add(newToDo)
                     })
-                }catch{
+                } catch {
                 }
                 todoTextField.text = ""
             } else {
                 // Realm内のデータを編集
-                do{
+                do {
                     let realm = try Realm()
                     try realm.write {
                         self.todoList[cellIndex].todo = todoTextField.text!
                     }
-                }catch{
+                } catch {
                 }
                 todoTextField.text = ""
                 view.endEditing(true)
@@ -237,12 +237,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let startDateTime = f.string(from: cell.startDateTime.getDate())
         
         // Realm内にstartDateを設定
-        do{
+        do {
             let realm = try Realm()
             try realm.write {
                 self.todoList[row!].startDateTime = startDateTime
             }
-        }catch{
+        } catch {
         }
         
         todoListTableView.reloadData()
