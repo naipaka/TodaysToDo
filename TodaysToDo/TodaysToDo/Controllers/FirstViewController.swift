@@ -226,9 +226,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc func setStartDateTime(_ sender: UIButton) {
         
         // ボタンが押されたcellを特定
-        let cell = sender.superview?.superview?.superview?.superview as! ToDoListTableViewCell
+        guard let cell = sender.superview?.superview?.superview?.superview as? ToDoListTableViewCell else {
+            return
+        }
         // cellのindex番号を取得
-        let row = todoListTableView.indexPath(for: cell)?.row
+        guard let row = todoListTableView.indexPath(for: cell)?.row else {
+            return
+        }
         // Dateのフォーマットを設定
         let f = DateFormatter()
         f.dateStyle = .long
@@ -240,7 +244,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         do {
             let realm = try Realm()
             try realm.write {
-                self.todoList[row!].startDateTime = startDateTime
+                self.todoList[row].startDateTime = startDateTime
             }
         } catch {
         }
