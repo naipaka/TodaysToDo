@@ -64,6 +64,16 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </view>
+                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ng8-hc-CLd">
+                        <rect key="frame" x="0.0" y="88" width="343" height="5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                <color key="value" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
                 </subviews>
                 <constraints>
                     <constraint firstAttribute="bottomMargin" secondItem="sGQ-cl-TFk" secondAttribute="bottom" constant="25" id="7br-Nw-VJa"/>
@@ -74,8 +84,10 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="doneLine" destination="Ng8-hc-CLd" id="QVP-l0-nor"/>
                 <outlet property="startTime" destination="tGS-ds-kUp" id="0qT-eG-Yzb"/>
                 <outlet property="todaysToDo" destination="gRF-uS-NkC" id="G86-k1-ysE"/>
+                <outlet property="todaysToDoCell" destination="H2p-sc-9uM" id="zjq-Jr-gqI"/>
                 <outlet property="todaysToDoView" destination="sGQ-cl-TFk" id="ilM-q6-yTZ"/>
             </connections>
             <point key="canvasLocation" x="136.80000000000001" y="192.50374812593705"/>

@@ -10,9 +10,11 @@ import UIKit
 
 class TodaysToDoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var todaysToDoCell: UIView!
     @IBOutlet weak var todaysToDoView: UIView!
     @IBOutlet weak var startTime: UILabel!
     @IBOutlet weak var todaysToDo: UILabel!
+    @IBOutlet weak var doneLine: UIView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
