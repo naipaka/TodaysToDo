@@ -15,6 +15,9 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
     let startTime:[String] = ["10:00 〜", "13:00 〜", "15:00 〜"]
     let todaysToDo:[String] = ["村長の話を聞く", "防具を揃える", "近くの村へ行く"]
     
+    // セルの数
+    let cellCount: Int = 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -28,7 +31,7 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todaysToDo.count
+        return cellCount
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -45,7 +48,7 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
     // セルの高さを設定
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         let tableViewHigh = todaysToDoTableView.bounds.height
-        let cellHigh = tableViewHigh/3
+        let cellHigh = tableViewHigh/CGFloat(cellCount)
         return cellHigh
     }
 }
