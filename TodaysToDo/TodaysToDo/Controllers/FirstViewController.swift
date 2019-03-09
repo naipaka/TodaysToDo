@@ -52,7 +52,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Realmからデータを取得
         do {
             let realm = try Realm()
-            let predicate = NSPredicate(format: "startDateTime = ''")
+            let predicate = NSPredicate(format: "startDateTime = nil")
             todoList = realm.objects(ToDo.self).filter(predicate)
         } catch {
         }
@@ -233,18 +233,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         guard let row = todoListTableView.indexPath(for: cell)?.row else {
             return
         }
-        // Dateのフォーマットを設定
-        let f = DateFormatter()
-        f.dateStyle = .long
-        f.timeStyle = .short
-        f.locale = Locale(identifier: "ja")
-        let startDateTime = f.string(from: cell.startDateTime.getDate())
         
         // Realm内にstartDateを設定
         do {
             let realm = try Realm()
             try realm.write {
-                self.todoList[row].startDateTime = startDateTime
+                self.todoList[row].startDateTime = cell.startDateTime.getDate()
             }
         } catch {
         }

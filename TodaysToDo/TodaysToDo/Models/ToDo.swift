@@ -13,7 +13,7 @@ class ToDo: Object {
     // todo
     @objc dynamic var todo = ""
     // 開始日時
-    @objc dynamic var startDateTime = ""
+    @objc dynamic var startDateTime: Date? = nil
     // 追加日時
     @objc dynamic var addDate = ""
     // 実行済み
