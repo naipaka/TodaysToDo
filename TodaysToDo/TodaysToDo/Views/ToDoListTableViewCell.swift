@@ -8,21 +8,36 @@
 
 import UIKit
 
+protocol ToDoListTableViewCellDelegate {
+    // セル内容の設定
+    func setCellContents(_ cell: ToDoListTableViewCell, _ toDoTitle: UILabel)
+    // タスクの名前をタップした時の処理
+    func didTappedToDoTitle(_ cell: ToDoListTableViewCell)
+    // 「設定」ボタンタップ時の処理
+    func didTappedStartDateTimeButton(_ cell: ToDoListTableViewCell, _ startDateTime: DatePickerKeyboard)
+}
+
 class ToDoListTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var todoText: UILabel!
-    @IBOutlet weak var startDateTime: DatePickerKeyboard!
-    @IBOutlet weak var setStartDateTime: UIButton!
+    @IBOutlet weak private var toDoTitle: UILabel!
+    @IBOutlet weak private var startDateTime: DatePickerKeyboard!
+    var toDoListTableViewCellDelegate: ToDoListTableViewCellDelegate?
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+        let tapToDoTitleGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapToDoTitle(_:)))
+        toDoTitle.addGestureRecognizer(tapToDoTitleGesture)
+        toDoTitle.adjustsFontSizeToFitWidth = true
+        toDoTitle.isUserInteractionEnabled = true
+        self.toDoListTableViewCellDelegate?.setCellContents(self, toDoTitle)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @objc func tapToDoTitle(_ sender: UITapGestureRecognizer) {
+        self.toDoListTableViewCellDelegate?.didTappedToDoTitle(self)
     }
-
+    
+    @IBAction func tapStartDateTimeButton(_ sender: UIButton) {
+        self.toDoListTableViewCellDelegate?.didTappedStartDateTimeButton(self, startDateTime)
+    }
 }

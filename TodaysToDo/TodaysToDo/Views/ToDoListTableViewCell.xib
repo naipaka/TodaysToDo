@@ -60,6 +60,9 @@
                                                 <color key="value" red="0.99515013100000005" green="0.75790410600000002" blue="0.36890478129999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="tapStartDateTimeButton:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="B8d-wZ-Nub"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
@@ -135,9 +138,8 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="setStartDateTime" destination="UQz-UL-dD8" id="8qE-j1-FFw"/>
                 <outlet property="startDateTime" destination="Wnt-jq-0qD" id="lJj-a0-EcY"/>
-                <outlet property="todoText" destination="A1W-wb-uJQ" id="b7H-NM-A1R"/>
+                <outlet property="toDoTitle" destination="A1W-wb-uJQ" id="29w-0H-Drl"/>
             </connections>
             <point key="canvasLocation" x="116.8" y="84.107946026986511"/>
         </tableViewCell>
