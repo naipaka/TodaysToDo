@@ -18,13 +18,25 @@ class TodaysToDoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        doneLine.isHidden = true
+        todaysToDoView.layer.cornerRadius = 30
+        
+        let tapTodaysToDoViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapTodaysToDoView(_:)))
+        todaysToDoView.addGestureRecognizer(tapTodaysToDoViewGestureRecognizer)
     }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    
+    @objc func tapTodaysToDoView(_ sender: UITapGestureRecognizer) {
+        if doneLine.isHidden {
+            doneLine.isHidden = false
+            startTime.textColor = UIColor.white
+            todaysToDo.textColor = UIColor.white
+            todaysToDoView.backgroundColor = UIColor(displayP3Red: 1.03898, green: 0.745736, blue: 0.275342, alpha: 1)
+        } else {
+            doneLine.isHidden = true
+            startTime.textColor = UIColor.black
+            todaysToDo.textColor = UIColor.black
+            todaysToDoView.backgroundColor = UIColor.white
+        }
     }
     
 }
