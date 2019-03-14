@@ -21,16 +21,19 @@ class ToDoListTableViewCell: UITableViewCell {
 
     @IBOutlet weak private var toDoTitle: UILabel!
     @IBOutlet weak private var startDateTime: DatePickerKeyboard!
-    var toDoListTableViewCellDelegate: ToDoListTableViewCellDelegate?
+    var toDoListTableViewCellDelegate: ToDoListTableViewCellDelegate?{
+        didSet {
+            toDoTitle.adjustsFontSizeToFitWidth = true
+            toDoTitle.isUserInteractionEnabled = true
+            self.toDoListTableViewCellDelegate?.setCellContents(self, toDoTitle)
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         
         let tapToDoTitleGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapToDoTitle(_:)))
         toDoTitle.addGestureRecognizer(tapToDoTitleGesture)
-        toDoTitle.adjustsFontSizeToFitWidth = true
-        toDoTitle.isUserInteractionEnabled = true
-        self.toDoListTableViewCellDelegate?.setCellContents(self, toDoTitle)
     }
     
     @objc func tapToDoTitle(_ sender: UITapGestureRecognizer) {

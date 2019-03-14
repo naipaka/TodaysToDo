@@ -122,7 +122,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // セル内容の設定
     func setCellContents(_ cell: ToDoListTableViewCell, _ toDoTitle: UILabel) {
-        print("テスト")
         guard let row = todoListTableView.indexPath(for: cell)?.row else {
             return
         }
