@@ -6,10 +6,14 @@ PODS:
     - Realm (= 3.14.1)
 
 DEPENDENCIES:
+  - CalculateCalendarLogic
+  - FSCalendar
   - RealmSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - CalculateCalendarLogic
+    - FSCalendar
     - Realm
     - RealmSwift
 
@@ -17,6 +21,6 @@ SPEC CHECKSUMS:
   Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
   RealmSwift: a82eab9b04c3e1616082c7e17aa300740847769c
 
-PODFILE CHECKSUM: dd1f34f9268cccf31ff0561103025f5ca5305f19
+PODFILE CHECKSUM: 48e3f9d81af514899ce84ac3ee24c96a1c3cf934
 
 COCOAPODS: 1.6.0

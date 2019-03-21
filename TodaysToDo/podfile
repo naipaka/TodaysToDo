@@ -7,5 +7,7 @@ target 'TodaysToDo' do
 
   # Pods for TodaysToDo
   pod 'RealmSwift'
+  pod 'FSCalendar'
+  pod 'CalculateCalendarLogic' 
 
 end
