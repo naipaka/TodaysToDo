@@ -52,6 +52,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // Realmからデータを取得
         do {
             let realm = try Realm()
+            print(Realm.Configuration.defaultConfiguration.fileURL!)
             let predicate = NSPredicate(format: "startDateTime = nil")
             todoList = realm.objects(ToDo.self).filter(predicate)
         } catch {
@@ -95,7 +96,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // セルの内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = todoListTableView.dequeueReusableCell(withIdentifier: "ToDoListTableViewCell", for: indexPath) as! ToDoListTableViewCell
-        cell.toDoListTableViewCellDelegate = self
+        // TableviewCellDelegateをselfで受け取る設定をし、ToDoのデータを渡す。
+        cell.configure(with: todoList[indexPath.row], delegate: self)
         
         return cell
     }
@@ -118,14 +120,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // セルの高さを設定
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return cellHeigh
-    }
-    
-    // セル内容の設定
-    func setCellContents(_ cell: ToDoListTableViewCell, _ toDoTitle: UILabel) {
-        guard let row = todoListTableView.indexPath(for: cell)?.row else {
-            return
-        }
-        toDoTitle.text = todoList[row].todo
     }
     
     // ToDoの追加および変更
