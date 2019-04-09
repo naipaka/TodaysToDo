@@ -1,4 +1,6 @@
 PODS:
+  - CalculateCalendarLogic (0.2.5)
+  - FSCalendar (2.8.0)
   - Realm (3.14.1):
     - Realm/Headers (= 3.14.1)
   - Realm/Headers (3.14.1)
@@ -18,6 +20,8 @@ SPEC REPOS:
     - RealmSwift
 
 SPEC CHECKSUMS:
+  CalculateCalendarLogic: 27db31b8f27a42869ecf7ad0d43963a05af14193
+  FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
   Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
   RealmSwift: a82eab9b04c3e1616082c7e17aa300740847769c
 
