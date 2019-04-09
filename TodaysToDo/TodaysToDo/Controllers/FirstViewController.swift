@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ToDoListTableViewCellDelegate {
 
     // キーボード出現ボタン
     @IBOutlet weak var showKeyboardButton: UIButton!
@@ -50,11 +50,11 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         self.addButton.addGestureRecognizer(tapButton)
         
         // Realmからデータを取得
-        do{
+        do {
             let realm = try Realm()
-            let predicate = NSPredicate(format: "startDate = ''")
+            let predicate = NSPredicate(format: "startDateTime = nil")
             todoList = realm.objects(ToDo.self).filter(predicate)
-        }catch{
+        } catch {
         }
         // tableViewにカスタムセルを登録
         todoListTableView.register(UINib(nibName: "ToDoListTableViewCell", bundle: nil), forCellReuseIdentifier: "ToDoListTableViewCell")
@@ -95,15 +95,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     // セルの内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = todoListTableView.dequeueReusableCell(withIdentifier: "ToDoListTableViewCell", for: indexPath) as! ToDoListTableViewCell
-        // セル内のToDoをタップした時の処理
-        let tapCellToDo: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.editToDo(_:)))
-        cell.todoText.isUserInteractionEnabled = true
-        cell.todoText.tag = indexPath.row
-        cell.todoText.addGestureRecognizer(tapCellToDo)
+        // TableviewCellDelegateをselfで受け取る設定をし、ToDoのデータを渡す。
+        cell.configure(with: todoList[indexPath.row], delegate: self)
         
-        // カスタムセル内のプロパティ設定
-        cell.todoText.text = todoList[indexPath.row].todo
-        cell.todoText.adjustsFontSizeToFitWidth = true
         return cell
     }
     
@@ -111,15 +105,19 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
         if(editingStyle == UITableViewCell.EditingStyle.delete) {
             // Realm内のデータを削除
-            do{
+            do {
                 let realm = try Realm()
                 try realm.write {
                     realm.delete(self.todoList[indexPath.row])
                 }
                 tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
-            }catch{
+            } catch {
             }
         }
+        // ToDoの編集中に編集対象のタスクを削除するとエラーになる
+        // そのため、削除した際は、キーボードを下げる処理を実装
+        todoTextField.text = ""
+        view.endEditing(true)
     }
     
     // セルの高さを設定
@@ -132,24 +130,24 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if todoTextField.text != ""  {
             if addButton.titleLabel?.text == "追加" {
                 let newToDo = ToDo()
-                newToDo.todo = todoTextField.text!
+                newToDo.title = todoTextField.text!
                 
-                do{
+                do {
                     let realm = try Realm()
                     try realm.write({ () -> Void in
                         realm.add(newToDo)
                     })
-                }catch{
+                } catch {
                 }
                 todoTextField.text = ""
             } else {
                 // Realm内のデータを編集
-                do{
+                do {
                     let realm = try Realm()
                     try realm.write {
-                        self.todoList[cellIndex].todo = todoTextField.text!
+                        self.todoList[cellIndex].title = todoTextField.text!
                     }
-                }catch{
+                } catch {
                 }
                 todoTextField.text = ""
                 view.endEditing(true)
@@ -160,13 +158,15 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     // ToDoの編集
-    @objc func editToDo(_ sender: UITapGestureRecognizer) {
-        let row = sender.view?.tag
-        cellIndex = row!
-        todoTextField.text = todoList[row!].todo
+    @objc func didTappedToDoTitle(_ cell: ToDoListTableViewCell) {
+        guard let row = todoListTableView.indexPath(for: cell)?.row else {
+            return
+        }
+        cellIndex = row
+        todoTextField.text = todoList[row].title
         addButton.setTitle("変更", for: .normal)
-        todoTextField.becomeFirstResponder()
         selectKeyboard = 1
+        todoTextField.becomeFirstResponder()
     }
     
     // ボタンのドラッグ
@@ -216,5 +216,23 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         })
         showKeyboardButton.isEnabled = true
         selectKeyboard = 0
+    }
+    
+    // レコードに日付を設定する
+    @objc func didTappedStartDateTimeButton(_ cell: ToDoListTableViewCell, _ startDateTime: DatePickerKeyboard) {
+        guard let row = todoListTableView.indexPath(for: cell)?.row else {
+            return
+        }
+        
+        // Realm内にstartDateを設定
+        do {
+            let realm = try Realm()
+            try realm.write {
+                self.todoList[row].startDateTime = startDateTime.getDate()
+            }
+        } catch {
+        }
+        
+        todoListTableView.reloadData()
     }
 }
