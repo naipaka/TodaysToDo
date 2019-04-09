@@ -10,11 +10,11 @@ import UIKit
 
 class TodaysToDoTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var todaysToDoCell: UIView!
-    @IBOutlet weak var todaysToDoView: UIView!
-    @IBOutlet weak var startTime: UILabel!
-    @IBOutlet weak var todaysToDo: UILabel!
-    @IBOutlet weak var doneLine: UIView!
+    @IBOutlet weak private var todaysToDoCell: UIView!
+    @IBOutlet weak private var todaysToDoView: UIView!
+    @IBOutlet weak private var startTime: UILabel!
+    @IBOutlet weak private var todaysToDo: UILabel!
+    @IBOutlet weak private var doneLine: UIView!
     
     @objc func tapTodaysToDoView(_ sender: UITapGestureRecognizer) {
         if doneLine.isHidden {
