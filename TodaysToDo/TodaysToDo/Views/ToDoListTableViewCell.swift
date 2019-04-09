@@ -38,7 +38,7 @@ class ToDoListTableViewCell: UITableViewCell {
         self.todo = todo
         
         // ToDoのタイトルのtextを設定する
-        toDoTitle.text = todo.todo
+        toDoTitle.text = todo.title
         // ToDoのタイトルの文字の大きさを幅に合わせるように設定する
         toDoTitle.adjustsFontSizeToFitWidth = true
         // ToDoのタイトルをタップ可能に設定する。

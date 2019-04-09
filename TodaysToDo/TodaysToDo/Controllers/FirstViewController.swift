@@ -114,6 +114,10 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             } catch {
             }
         }
+        // ToDoの編集中に編集対象のタスクを削除するとエラーになる
+        // そのため、削除した際は、キーボードを下げる処理を実装
+        todoTextField.text = ""
+        view.endEditing(true)
     }
     
     // セルの高さを設定
@@ -126,7 +130,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         if todoTextField.text != ""  {
             if addButton.titleLabel?.text == "追加" {
                 let newToDo = ToDo()
-                newToDo.todo = todoTextField.text!
+                newToDo.title = todoTextField.text!
                 
                 do {
                     let realm = try Realm()
@@ -141,7 +145,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 do {
                     let realm = try Realm()
                     try realm.write {
-                        self.todoList[cellIndex].todo = todoTextField.text!
+                        self.todoList[cellIndex].title = todoTextField.text!
                     }
                 } catch {
                 }
@@ -159,7 +163,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         cellIndex = row
-        todoTextField.text = todoList[row].todo
+        todoTextField.text = todoList[row].title
         addButton.setTitle("変更", for: .normal)
         selectKeyboard = 1
         todoTextField.becomeFirstResponder()
