@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class SecondViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, TabBarDelegate {
+class SecondViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, TodaysToDoTableViewCellDelegate, TabBarDelegate {
 
     @IBOutlet weak var todaysToDoTableView: UITableView!
     
@@ -51,7 +51,8 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = todaysToDoTableView.dequeueReusableCell(withIdentifier: "TodaysToDoTableViewCell", for: indexPath) as! TodaysToDoTableViewCell
         
-        cell.configure(with: todaysTodoList[indexPath.row])
+        // cellのインスタンス化時の設定
+        cell.configure(with: todaysTodoList[indexPath.row], delegate: self)
         
         return cell
     }
@@ -66,6 +67,21 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
     // 他画面から遷移した時にTableのデータを再読み込みする
     func didSelectTab(tabBarController: TabBarController) {
         todaysToDoTableView.reloadData()
+    }
+    
+    // タスクがタップされた時の処理
+    func didTappedTodaysToDoCell(_ cell: TodaysToDoTableViewCell, _ argDone: Bool) {
+        guard let row = todaysToDoTableView.indexPath(for: cell)?.row else {
+            return
+        }
+        // Realm内のデータを編集
+        do {
+            let realm = try Realm()
+            try realm.write {
+                self.todaysTodoList[row].done = argDone
+            }
+        } catch {
+        }
     }
 }
 
