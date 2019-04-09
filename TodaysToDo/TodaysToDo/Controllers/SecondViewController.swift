@@ -28,14 +28,16 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
         todaysToDoTableView.allowsSelection = false
     }
     
+    // セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return todaysToDo.count
     }
     
+    // cellの内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = todaysToDoTableView.dequeueReusableCell(withIdentifier: "TodaysToDoTableViewCell", for: indexPath) as! TodaysToDoTableViewCell
         
-        // カスタムセル内のプロパティ設定
+        // カスタムセルのプロパティ設定
         cell.todaysToDo.text = todaysToDo[indexPath.row]
         cell.startTime.text = startTime[indexPath.row]
         

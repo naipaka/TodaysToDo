@@ -18,11 +18,9 @@ class TodaysToDoTableViewCell: UITableViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        doneLine.isHidden = true
-        todaysToDoView.layer.cornerRadius = 30
         
-        let tapTodaysToDoViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapTodaysToDoView(_:)))
-        todaysToDoView.addGestureRecognizer(tapTodaysToDoViewGestureRecognizer)
+        
+        
     }
     
     @objc func tapTodaysToDoView(_ sender: UITapGestureRecognizer) {
@@ -37,6 +35,27 @@ class TodaysToDoTableViewCell: UITableViewCell {
             todaysToDo.textColor = UIColor.black
             todaysToDoView.backgroundColor = UIColor.white
         }
+    }
+    
+    // Cellをインスタンス化した時に行うCellに対する設定メソッド
+    func configure(with todo: ToDo) {
+        // cellの形を丸枠にする
+        todaysToDoView.layer.cornerRadius = 30
+        // ToDoのタイトルのtextを設定する
+        todaysToDo.text = todo.title
+        // ToDoの開始時間を設定する
+        startTime.text = toStringStartTime(startDateTime: todo.startDateTime!)
+        // 赤線の初期表示
+        doneLine.isHidden = true
+        
+        // cellをタップした時のgesture
+        let tapTodaysToDoViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapTodaysToDoView(_:)))
+        todaysToDoView.addGestureRecognizer(tapTodaysToDoViewGestureRecognizer)
+    }
+    
+    // 開始時間の取得
+    private func toStringStartTime(startDateTime: Date) -> String {
+        return ""
     }
     
 }
