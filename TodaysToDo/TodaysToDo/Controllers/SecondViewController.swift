@@ -7,13 +7,13 @@
 //
 
 import UIKit
+import RealmSwift
 
-class SecondViewController: UIViewController , UITableViewDelegate, UITableViewDataSource {
+class SecondViewController: UIViewController , UITableViewDelegate, UITableViewDataSource, TabBarDelegate {
 
     @IBOutlet weak var todaysToDoTableView: UITableView!
     
-    let startTime:[String] = ["10:00 〜", "13:00 〜", "15:00 〜"]
-    let todaysToDo:[String] = ["村長の話を聞く", "防具を揃える", "近くの村へ行く"]
+    var todaysTodoList: Results<ToDo>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,25 +21,37 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
         todaysToDoTableView.delegate = self
         todaysToDoTableView.dataSource = self
         
+        // Realmからデータを取得
+        do {
+            let realm = try Realm()
+            let predicate = NSPredicate(format: "%@ =< startDateTime AND startDateTime < %@", getBeginingAndEndOfToday().beginingOfToday as CVarArg, getBeginingAndEndOfToday().endOfToday as CVarArg)
+            todaysTodoList = realm.objects(ToDo.self).filter(predicate)
+        } catch {
+        }
+        
         // tableViewにカスタムセルを登録
         todaysToDoTableView.register(UINib(nibName: "TodaysToDoTableViewCell", bundle: nil), forCellReuseIdentifier: "TodaysToDoTableViewCell")
         todaysToDoTableView.tableFooterView = UIView()
-        todaysToDoTableView.reloadData()
         todaysToDoTableView.allowsSelection = false
+    }
+    
+    // 今日の始まりと終わりを取得
+    private func getBeginingAndEndOfToday() -> (beginingOfToday: Date , endOfToday: Date) {
+        let beginingOfToday = Calendar(identifier: .gregorian).startOfDay(for: Date())
+        let endOfToday = beginingOfToday + 24*60*60
+        return (beginingOfToday, endOfToday)
     }
     
     // セルの数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return todaysToDo.count
+        return todaysTodoList.count
     }
     
     // cellの内容
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = todaysToDoTableView.dequeueReusableCell(withIdentifier: "TodaysToDoTableViewCell", for: indexPath) as! TodaysToDoTableViewCell
         
-        // カスタムセルのプロパティ設定
-        cell.todaysToDo.text = todaysToDo[indexPath.row]
-        cell.startTime.text = startTime[indexPath.row]
+        cell.configure(with: todaysTodoList[indexPath.row])
         
         return cell
     }
@@ -49,6 +61,11 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
         let tableViewHigh = todaysToDoTableView.bounds.height
         let cellHigh = tableViewHigh/3
         return cellHigh
+    }
+    
+    // 他画面から遷移した時にTableのデータを再読み込みする
+    func didSelectTab(tabBarController: TabBarController) {
+        todaysToDoTableView.reloadData()
     }
 }
 

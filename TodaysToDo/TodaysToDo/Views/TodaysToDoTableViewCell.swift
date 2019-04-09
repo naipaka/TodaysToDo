@@ -16,13 +16,6 @@ class TodaysToDoTableViewCell: UITableViewCell {
     @IBOutlet weak var todaysToDo: UILabel!
     @IBOutlet weak var doneLine: UIView!
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-        
-        
-    }
-    
     @objc func tapTodaysToDoView(_ sender: UITapGestureRecognizer) {
         if doneLine.isHidden {
             doneLine.isHidden = false
@@ -38,13 +31,13 @@ class TodaysToDoTableViewCell: UITableViewCell {
     }
     
     // Cellをインスタンス化した時に行うCellに対する設定メソッド
-    func configure(with todo: ToDo) {
+    func configure(with argTodaysToDo: ToDo) {
         // cellの形を丸枠にする
         todaysToDoView.layer.cornerRadius = 30
         // ToDoのタイトルのtextを設定する
-        todaysToDo.text = todo.title
+        todaysToDo.text = argTodaysToDo.title
         // ToDoの開始時間を設定する
-        startTime.text = toStringStartTime(startDateTime: todo.startDateTime!)
+        startTime.text = toStringStartTime(startDateTime: argTodaysToDo.startDateTime!)
         // 赤線の初期表示
         doneLine.isHidden = true
         
@@ -55,7 +48,11 @@ class TodaysToDoTableViewCell: UITableViewCell {
     
     // 開始時間の取得
     private func toStringStartTime(startDateTime: Date) -> String {
-        return ""
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        formatter.locale = Locale(identifier: "ja")
+        let startTime = formatter.string(from: startDateTime)
+        return startTime + " 〜"
     }
     
 }
