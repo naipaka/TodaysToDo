@@ -22,30 +22,17 @@ class TodaysToDoTableViewCell: UITableViewCell {
     @IBOutlet weak private var doneLine: UIView!
     private var todaysToDoTableViewCellDelegate: TodaysToDoTableViewCellDelegate?
     
-    override func awakeFromNib() {
-        // 赤線の初期表示
-        doneLine.isHidden = true
-    }
-    
     // cellをタップした時の処理
     @objc func tapTodaysToDoView(_ sender: UITapGestureRecognizer) {
         if doneLine.isHidden {
-            doneLine.isHidden = false
-            startTime.textColor = UIColor.white
-            todaysToDo.textColor = UIColor.white
-            todaysToDoView.backgroundColor = UIColor(displayP3Red: 1.03898, green: 0.745736, blue: 0.275342, alpha: 1)
-            self.todaysToDoTableViewCellDelegate?.didTappedTodaysToDoCell(self, true)
+        self.todaysToDoTableViewCellDelegate?.didTappedTodaysToDoCell(self, true)
         } else {
-            doneLine.isHidden = true
-            startTime.textColor = UIColor.black
-            todaysToDo.textColor = UIColor.black
-            todaysToDoView.backgroundColor = UIColor.white
-            self.todaysToDoTableViewCellDelegate?.didTappedTodaysToDoCell(self, false)
+        self.todaysToDoTableViewCellDelegate?.didTappedTodaysToDoCell(self, false)
         }
     }
     
     // Cellをインスタンス化した時に行うCellに対する設定メソッド
-    func configure(with argTodaysToDo: ToDo, delegate: TodaysToDoTableViewCellDelegate) {
+    func configure(with argTodaysToDo: ToDo, argDone: Bool, delegate: TodaysToDoTableViewCellDelegate) {
         // 引数delegateに処理をDelegateする設定をする
         todaysToDoTableViewCellDelegate = delegate
         // cellの形を丸枠にする
@@ -54,6 +41,19 @@ class TodaysToDoTableViewCell: UITableViewCell {
         todaysToDo.text = argTodaysToDo.title
         // ToDoの開始時間を設定する
         startTime.text = toStringStartTime(startDateTime: argTodaysToDo.startDateTime!)
+        
+        // 実行状況に応じてセルのデザインを変える
+        if argDone {
+            doneLine.isHidden = false
+            startTime.textColor = UIColor.white
+            todaysToDo.textColor = UIColor.white
+            todaysToDoView.backgroundColor = UIColor(displayP3Red: 1.03898, green: 0.745736, blue: 0.275342, alpha: 1)
+        } else {
+            doneLine.isHidden = true
+            startTime.textColor = UIColor.black
+            todaysToDo.textColor = UIColor.black
+            todaysToDoView.backgroundColor = UIColor.white
+        }
         
         // cellをタップした時のgesture
         let tapTodaysToDoViewGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(tapTodaysToDoView(_:)))

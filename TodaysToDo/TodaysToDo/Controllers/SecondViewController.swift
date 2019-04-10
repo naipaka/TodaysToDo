@@ -51,8 +51,11 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = todaysToDoTableView.dequeueReusableCell(withIdentifier: "TodaysToDoTableViewCell", for: indexPath) as! TodaysToDoTableViewCell
         
+        // 実行状況を取得
+        let isDone = todaysTodoList[indexPath.row].done
+        
         // cellのインスタンス化時の設定
-        cell.configure(with: todaysTodoList[indexPath.row], delegate: self)
+        cell.configure(with: todaysTodoList[indexPath.row], argDone: isDone, delegate: self)
         
         return cell
     }
@@ -82,6 +85,7 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
             }
         } catch {
         }
+        todaysToDoTableView.reloadData()
     }
 }
 
