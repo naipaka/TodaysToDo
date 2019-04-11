@@ -24,7 +24,6 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
         // Realmからデータを取得
         do {
             let realm = try Realm()
-            print(Realm.Configuration.defaultConfiguration.fileURL!)
             let predicate = NSPredicate(format: "%@ =< startDateTime AND startDateTime < %@", getBeginingAndEndOfToday().beginingOfToday as CVarArg, getBeginingAndEndOfToday().endOfToday as CVarArg)
             todaysTodoList = realm.objects(ToDo.self).filter(predicate).sorted(byKeyPath: "startDateTime")
         } catch {
