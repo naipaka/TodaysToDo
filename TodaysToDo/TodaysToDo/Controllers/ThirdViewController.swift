@@ -64,20 +64,20 @@ class ThirdViewController: UIViewController,FSCalendarDelegate, FSCalendarDataSo
         return nil
     }
     
-//    @IBAction func nextTapped(_ sender:UIButton) {
-//        calendar.setCurrentPage(getNextMonth(date: calendar.currentPage), animated: true)
-//        print("a")
-//    }
-//
-//    @IBAction  func previousTapped(_ sender:UIButton) {
-//        calendar.setCurrentPage(getPreviousMonth(date: calendar.currentPage), animated: true)
-//    }
-//
-//    func getNextMonth(date:Date)->Date {
-//        return  Calendar.current.date(byAdding: .month, value: 1, to:date)!
-//    }
-//
-//    func getPreviousMonth(date:Date)->Date {
-//        return  Calendar.current.date(byAdding: .month, value: -1, to:date)!
-//    }
+    @IBAction func nextTapped(_ sender:UIButton) {
+        calendar.setCurrentPage(getNextMonth(date: calendar.currentPage), animated: true)
+        print("a")
+    }
+
+    @IBAction  func previousTapped(_ sender:UIButton) {
+        calendar.setCurrentPage(getPreviousMonth(date: calendar.currentPage), animated: true)
+    }
+
+    func getNextMonth(date:Date)->Date {
+        return  Calendar.current.date(byAdding: .month, value: 1, to:date)!
+    }
+
+    func getPreviousMonth(date:Date)->Date {
+        return  Calendar.current.date(byAdding: .month, value: -1, to:date)!
+    }
 }
