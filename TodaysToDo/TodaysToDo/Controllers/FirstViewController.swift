@@ -33,6 +33,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     var cellIndex:Int = 0
     // textKeyboard(1)かDataPickerKeyborad(0)の判断
     var selectKeyboard = 0
+    // 1日に設定できるタスクの最大数
+    private static let maxToDoListCount = 3
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -224,6 +226,12 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         
+        // レコードに日付が設定できなければアラートを表示する
+        if isMaxToDoListCount(cell, startDateTime){
+            dispCanNotSetAlert()
+            return
+        }
+        
         // Realm内にstartDateを設定
         do {
             let realm = try Realm()
@@ -234,5 +242,52 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         todoListTableView.reloadData()
+    }
+    
+    // 設定しようとしている日にすでに設定されているタスク数が最大数：true
+    func isMaxToDoListCount(_ cell: ToDoListTableViewCell, _ startDateTime: DatePickerKeyboard) -> Bool{
+        // 設定しようとしている日にすでに設定されているタスクを格納するためのインスタンス
+        var tmpToDoList: Results<ToDo>!
+        
+        // 設定しようとしている日の始まりと終わりを取得
+        let startDate = Calendar(identifier: .gregorian).startOfDay(for: startDateTime.getDate())
+        let nextDate = startDate + 24*60*60
+        
+        // 設定しようとしている日に設定されているタスクを取得
+        do {
+            let realm = try Realm()
+            let predicate = NSPredicate(format: "%@ =< startDateTime AND startDateTime < %@", startDate as CVarArg, nextDate as CVarArg)
+            tmpToDoList = realm.objects(ToDo.self).filter(predicate)
+        } catch {
+        }
+        
+        // 1日に設定できるタスクの限界数 >= 現在設定されているタスク数：true
+        // それ以外：false
+        return tmpToDoList.count >= FirstViewController.maxToDoListCount
+    }
+    
+    // 日付を設定できない時のアラート表示メソッド
+    func dispCanNotSetAlert() {
+        let alertController:UIAlertController = UIAlertController(
+            title: "１つ１つを着実に！",
+            message: "同じ日に設定できるタスクは\n３つまでです！",
+            preferredStyle:  UIAlertController.Style.alert
+        )
+        
+        let goCalendarPageAction: UIAlertAction = UIAlertAction(title: "Calendarへ", style: UIAlertAction.Style.default) { (action: UIAlertAction) in
+            // Calendar画面へ遷移する
+            let UINavigationController = self.tabBarController?.viewControllers?[2];
+            self.tabBarController?.selectedViewController = UINavigationController;
+        }
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "再設定", style: UIAlertAction.Style.cancel) { (action: UIAlertAction) in
+            // 設定をキャンセルする
+            return
+        }
+        
+        alertController.addAction(cancelAction)
+        alertController.addAction(goCalendarPageAction)
+        
+        self.present(alertController, animated: true, completion: nil)
     }
 }
