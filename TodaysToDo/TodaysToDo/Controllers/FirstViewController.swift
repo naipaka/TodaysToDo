@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ToDoListTableViewCellDelegate {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ToDoListTableViewCellDelegate, TabBarDelegate {
 
     // キーボード出現ボタン
     @IBOutlet weak var showKeyboardButton: UIButton!
@@ -226,9 +226,13 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
             return
         }
         
-        // レコードに日付が設定できなければアラートを表示する
-        if isMaxToDoListCount(cell, startDateTime){
-            dispCanNotSetAlert()
+        if isOldDate(startDateTime){
+            // 過去日に設定した時アラートを表示する
+            dispCanNotSetOldDateAlert()
+            return
+        } else if isMaxToDoListCount(cell, startDateTime){
+            // レコードに日付が設定できなければアラートを表示する
+            dispCanNotSetMaxCountAlert()
             return
         }
         
@@ -242,6 +246,15 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         todoListTableView.reloadData()
+    }
+    
+    // 設定する日時が過去日：true
+    func isOldDate(_ startDateTime: DatePickerKeyboard) -> Bool{
+        // 設定しようとしている日の始まりと今日の始まりを取得
+        let startDate = Calendar(identifier: .gregorian).startOfDay(for: startDateTime.getDate())
+        let startToday = Calendar(identifier: .gregorian).startOfDay(for: Date())
+        
+        return startDate < startToday
     }
     
     // 設定しようとしている日にすでに設定されているタスク数が最大数：true
@@ -266,8 +279,26 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return tmpToDoList.count >= FirstViewController.maxToDoListCount
     }
     
+    // 過去の日時に設定しようとした時のアラート表示メソッド
+    func dispCanNotSetOldDateAlert() {
+        let alertController:UIAlertController = UIAlertController(
+            title: "過去には設定できません！",
+            message: "託せる相手は未来の自分だけ。",
+            preferredStyle:  UIAlertController.Style.alert
+        )
+        
+        let cancelAction: UIAlertAction = UIAlertAction(title: "再設定", style: UIAlertAction.Style.cancel) { (action: UIAlertAction) in
+            // 設定をキャンセルする
+            return
+        }
+        
+        alertController.addAction(cancelAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     // 日付を設定できない時のアラート表示メソッド
-    func dispCanNotSetAlert() {
+    func dispCanNotSetMaxCountAlert() {
         let alertController:UIAlertController = UIAlertController(
             title: "１つ１つを着実に！",
             message: "同じ日に設定できるタスクは\n３つまでです！",
@@ -289,5 +320,23 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         alertController.addAction(goCalendarPageAction)
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    // 他画面から遷移した時にTableのデータを再読み込みする
+    func didSelectTab(tabBarController: TabBarController) {
+        // 日付が過ぎたタスクの設定日時をリセットする
+        do {
+            let realm = try Realm()
+            let predicate = NSPredicate(format: "startDateTime < %@", Calendar(identifier: .gregorian).startOfDay(for: Date()) as CVarArg)
+            let oldTodoList = realm.objects(ToDo.self).filter(predicate)
+            
+            for oldToDo in oldTodoList {
+                try realm.write {
+                    oldToDo.startDateTime = nil
+                }
+            }
+        } catch {
+        }
+        todoListTableView.reloadData()
     }
 }
