@@ -25,7 +25,7 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
         do {
             let realm = try Realm()
             let predicate = NSPredicate(format: "%@ =< startDateTime AND startDateTime < %@", getBeginingAndEndOfToday().beginingOfToday as CVarArg, getBeginingAndEndOfToday().endOfToday as CVarArg)
-            todaysTodoList = realm.objects(ToDo.self).filter(predicate)
+            todaysTodoList = realm.objects(ToDo.self).filter(predicate).sorted(byKeyPath: "startDateTime")
         } catch {
         }
         
