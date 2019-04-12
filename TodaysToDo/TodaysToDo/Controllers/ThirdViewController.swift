@@ -7,21 +7,42 @@
 //
 
 import UIKit
+import RealmSwift
 import FSCalendar
 import CalculateCalendarLogic
 
-class ThirdViewController: UIViewController,FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
-
+class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+    
     @IBOutlet weak var calendar: FSCalendar!
+    @IBOutlet weak var calendarsToDoListTableView: UITableView!
+    private var calendarsToDoList: Results<ToDo>!
+    
     let SUNDAY_INDEX = 1
     let SATURDAY_INDEX = 7
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         // デリゲートの設定
         calendar.dataSource = self
         calendar.delegate = self
+        calendarsToDoListTableView.delegate = self
+        calendarsToDoListTableView.dataSource = self
+        
+        // Realmからデータを取得
+        do {
+            let realm = try Realm()
+            let predicate = NSPredicate(format: "%@ =< startDateTime AND startDateTime < %@", getBeginingAndEndOfToday(Date()).beginingOfToday as CVarArg, getBeginingAndEndOfToday(Date()).endOfToday as CVarArg)
+            calendarsToDoList = realm.objects(ToDo.self).filter(predicate).sorted(byKeyPath: "startDateTime")
+        } catch {
+        }
+        calendarsToDoListTableView.reloadData()
+    }
+    
+    // 日の始まりと終わりを取得
+    private func getBeginingAndEndOfToday(_ date:Date) -> (beginingOfToday: Date , endOfToday: Date) {
+        let beginingOfToday = Calendar(identifier: .gregorian).startOfDay(for: date)
+        let endOfToday = beginingOfToday + 24*60*60
+        return (beginingOfToday, endOfToday)
     }
     
     // 祝日：true 祝日以外：false
@@ -66,7 +87,6 @@ class ThirdViewController: UIViewController,FSCalendarDelegate, FSCalendarDataSo
     
     @IBAction func nextTapped(_ sender:UIButton) {
         calendar.setCurrentPage(getNextMonth(date: calendar.currentPage), animated: true)
-        print("a")
     }
 
     @IBAction  func previousTapped(_ sender:UIButton) {
@@ -79,5 +99,65 @@ class ThirdViewController: UIViewController,FSCalendarDelegate, FSCalendarDataSo
 
     func getPreviousMonth(date:Date)->Date {
         return  Calendar.current.date(byAdding: .month, value: -1, to:date)!
+    }
+    
+    // 日付選択時の処理
+    func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition){
+        // Realmからデータを取得
+        do {
+            let realm = try Realm()
+            let predicate = NSPredicate(format: "%@ =< startDateTime AND startDateTime < %@", getBeginingAndEndOfToday(date).beginingOfToday as CVarArg, getBeginingAndEndOfToday(date).endOfToday as CVarArg)
+            calendarsToDoList = realm.objects(ToDo.self).filter(predicate).sorted(byKeyPath: "startDateTime")
+        } catch {
+        }
+        calendarsToDoListTableView.reloadData()
+    }
+    
+    // セルの数
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return calendarsToDoList.count
+    }
+    
+    // セルの内容
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        // セルを取得する
+        let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "calendarsToDoCell", for: indexPath)
+        
+        // セルに表示する値を設定する
+        let f = DateFormatter()
+        f.timeStyle = .short
+        f.locale = Locale(identifier: "ja_JP")
+        let strStartTime = f.string(from: calendarsToDoList[indexPath.row].startDateTime!)
+        let strToDoTitle = calendarsToDoList[indexPath.row].title
+        cell.textLabel!.text = strStartTime + " 〜　" + strToDoTitle
+        
+        return cell
+    }
+    
+    // セル削除時の文言を設定
+    func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+        return "Inboxへ"
+    }
+    
+    // セルの削除
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath){
+        if(editingStyle == UITableViewCell.EditingStyle.delete) {
+            // 日付が過ぎたタスクの処理
+            do {
+                let realm = try Realm()
+                try realm.write {
+                    calendarsToDoList[indexPath.row].done = false
+                    calendarsToDoList[indexPath.row].startDateTime = nil
+                }
+                tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
+            } catch {
+            }
+            calendarsToDoListTableView.reloadData()
+        }
+    }
+    
+    // 他画面から遷移した時にTableのデータを再読み込みする
+    func didSelectTab(tabBarController: TabBarController) {
+        calendarsToDoListTableView.reloadData()
     }
 }
