@@ -152,12 +152,27 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.fade)
             } catch {
             }
+            calendar.reloadData()
             calendarsToDoListTableView.reloadData()
         }
     }
     
+    // タスクが設定されている日付に点マークをつける
+    func calendar(_ calendar: FSCalendar, numberOfEventsFor date: Date) -> Int{
+        var tmpCalendarsToDoList: Results<ToDo>!
+        // Realmからデータを取得
+        do {
+            let realm = try Realm()
+            let predicate = NSPredicate(format: "%@ =< startDateTime AND startDateTime < %@", getBeginingAndEndOfToday(date).beginingOfToday as CVarArg, getBeginingAndEndOfToday(date).endOfToday as CVarArg)
+            tmpCalendarsToDoList = realm.objects(ToDo.self).filter(predicate)
+        } catch {
+        }
+        return tmpCalendarsToDoList.count
+    }
+    
     // 他画面から遷移した時にTableのデータを再読み込みする
     func didSelectTab(tabBarController: TabBarController) {
+        calendar.reloadData()
         calendarsToDoListTableView.reloadData()
     }
 }
