@@ -324,17 +324,26 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // 他画面から遷移した時にTableのデータを再読み込みする
     func didSelectTab(tabBarController: TabBarController) {
-        // 日付が過ぎたタスクの設定日時をリセットする
+        // 日付が過ぎたタスクの処理
         do {
             let realm = try Realm()
-            let predicate = NSPredicate(format: "startDateTime < %@", Calendar(identifier: .gregorian).startOfDay(for: Date()) as CVarArg)
-            let oldTodoList = realm.objects(ToDo.self).filter(predicate)
-            
+            // 未達成の場合
+            let oldPredicate = NSPredicate(format: "done = false AND startDateTime < %@", Calendar(identifier: .gregorian).startOfDay(for: Date()) as CVarArg)
+            let oldTodoList = realm.objects(ToDo.self).filter(oldPredicate)
             for oldToDo in oldTodoList {
                 try realm.write {
                     oldToDo.startDateTime = nil
                 }
             }
+            
+            // 達成済みの場合
+            let donePredicate = NSPredicate(format: "done = true AND startDateTime < %@", Calendar(identifier: .gregorian).startOfDay(for: Date()) as CVarArg)
+            let doneTodoList = realm.objects(ToDo.self).filter(donePredicate)
+            for doneToDo in doneTodoList {
+                try realm.write {
+                    realm.delete(doneToDo)                }
+            }
+            
         } catch {
         }
         todoListTableView.reloadData()
