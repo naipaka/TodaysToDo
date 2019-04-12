@@ -347,5 +347,8 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } catch {
         }
         todoListTableView.reloadData()
+        
+        // ボタンの位置をリセット
+        showKeyboardButton.center = view.center
     }
 }
