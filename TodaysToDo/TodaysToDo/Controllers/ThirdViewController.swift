@@ -11,7 +11,7 @@ import RealmSwift
 import FSCalendar
 import CalculateCalendarLogic
 
-class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance {
+class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, FSCalendarDelegate, FSCalendarDataSource, FSCalendarDelegateAppearance, TabBarDelegate {
     
     @IBOutlet weak var calendar: FSCalendar!
     @IBOutlet weak var calendarsToDoListTableView: UITableView!
@@ -35,6 +35,7 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
             calendarsToDoList = realm.objects(ToDo.self).filter(predicate).sorted(byKeyPath: "startDateTime")
         } catch {
         }
+        calendar.reloadData()
         calendarsToDoListTableView.reloadData()
     }
     
