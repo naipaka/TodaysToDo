@@ -49,4 +49,9 @@ class ToDoListTableViewCell: UITableViewCell {
         // ToDoのタイトルに設定したGestureを設定する
         toDoTitle.addGestureRecognizer(tapToDoTitleGesture)
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        startDateTime.commoninit()
+    }
 }

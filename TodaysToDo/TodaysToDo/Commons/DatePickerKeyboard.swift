@@ -20,7 +20,7 @@ class DatePickerKeyboard: UITextField {
         super.init(frame: frame)
         commoninit()
     }
-    private func commoninit() {
+    public func commoninit() {
         // datePickerの設定
         datePicker = UIDatePicker()
         datePicker.date = Date()
