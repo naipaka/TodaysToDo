@@ -7,15 +7,26 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // アプリのバッジの更新、サウンド、アラートの通知に関してユーザへ確認
+        let center = UNUserNotificationCenter.current()
+        center.requestAuthorization(options: [.alert, .badge, .sound]) {(granted, error) in
+            if granted {
+                print("許可する")
+            } else {
+                print("許可しない")
+            }
+        }
+        
         if let tabvc = self.window!.rootViewController as? UITabBarController  {
             tabvc.selectedIndex = 1
         }
