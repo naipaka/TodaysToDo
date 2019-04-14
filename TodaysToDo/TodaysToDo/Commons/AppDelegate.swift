@@ -8,6 +8,7 @@
 
 import UIKit
 import UserNotifications
+import RealmSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,16 +17,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
-        // アプリのバッジの更新、サウンド、アラートの通知に関してユーザへ確認
-        let center = UNUserNotificationCenter.current()
-        center.requestAuthorization(options: [.alert, .badge, .sound]) {(granted, error) in
-            if granted {
-                print("許可する")
-            } else {
-                print("許可しない")
-            }
-        }
         
         if let tabvc = self.window!.rootViewController as? UITabBarController  {
             tabvc.selectedIndex = 1
@@ -41,6 +32,43 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationDidEnterBackground(_ application: UIApplication) {
         // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
         // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+        
+        // 設定済みのタスクリストを取得
+        var settedToDoList: Results<ToDo>!
+        do {
+            let realm = try Realm()
+            let predicate = NSPredicate(format: "startDateTime != nil AND done = false")
+            settedToDoList = realm.objects(ToDo.self).filter(predicate)
+        } catch {
+        }
+        
+        for settedToDo in settedToDoList {
+            
+            //　通知設定に必要なクラスをインスタンス化
+            let trigger: UNNotificationTrigger
+            let content = UNMutableNotificationContent()
+            var notificationTime = DateComponents()
+            
+            // トリガー設定
+            var tmpDateComponents = DateComponents()
+            tmpDateComponents = Calendar.current.dateComponents(in: TimeZone.current, from: settedToDo.startDateTime!)
+            notificationTime.year = tmpDateComponents.year
+            notificationTime.month = tmpDateComponents.month
+            notificationTime.day = tmpDateComponents.day
+            notificationTime.hour = tmpDateComponents.hour
+            notificationTime.minute = tmpDateComponents.minute
+            trigger = UNCalendarNotificationTrigger(dateMatching: notificationTime, repeats: false)
+            
+            // 通知内容の設定
+            content.title = "タスクを始める時間です！"
+            content.body = settedToDo.title
+            content.sound = UNNotificationSound.default
+            
+            // 通知スタイルを指定
+            let request = UNNotificationRequest(identifier: "uuid", content: content, trigger: trigger)
+            // 通知をセット
+            UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        }
     }
 
     func applicationWillEnterForeground(_ application: UIApplication) {

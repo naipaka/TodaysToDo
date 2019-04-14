@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import UserNotifications
 import RealmSwift
 
-class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ToDoListTableViewCellDelegate, TabBarDelegate {
+class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, ToDoListTableViewCellDelegate, TabBarDelegate, UNUserNotificationCenterDelegate {
 
     // キーボード出現ボタン
     @IBOutlet weak var showKeyboardButton: UIButton!
@@ -131,6 +132,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
     @objc func addToDo(_ sender: UITapGestureRecognizer) {
         if todoTextField.text != ""  {
             if addButton.titleLabel?.text == "追加" {
+                
                 let newToDo = ToDo()
                 newToDo.title = todoTextField.text!
                 
@@ -246,6 +248,9 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         }
         
         todoListTableView.reloadData()
+        
+        // 初めてのタスク追加時に通知の許可を得る
+        getAllowNotification()
     }
     
     // 設定する日時が過去日：true
@@ -350,5 +355,27 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         
         // ボタンの位置をリセット
         showKeyboardButton.center = view.center
+    }
+    
+    // 初めてタスクを追加した時に通知の許可を取得
+    func getAllowNotification() {
+        if #available(iOS 10.0, *) {
+            // iOS 10
+            let center = UNUserNotificationCenter.current()
+            center.requestAuthorization(options: [.badge, .sound, .alert], completionHandler: { (granted, error) in
+                if error != nil {
+                    return
+                }
+                if granted {
+                    let center = UNUserNotificationCenter.current()
+                    center.delegate = self
+                } else {
+                }
+            })
+        } else {
+            // iOS 9以下
+            let settings = UIUserNotificationSettings(types: [.badge, .sound, .alert], categories: nil)
+            UIApplication.shared.registerUserNotificationSettings(settings)
+        }
     }
 }

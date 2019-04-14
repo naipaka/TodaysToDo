@@ -103,7 +103,6 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
             notDoneToDoListCount = notDoneToDoList.count
         } catch {
         }
-        print("aaaaaaaaaaaaaaaaaaaaa")
         UIApplication.shared.applicationIconBadgeNumber = notDoneToDoListCount
     }
     
@@ -126,5 +125,7 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
             name:UIApplication.didEnterBackgroundNotification,
             object: nil)
     }
+    
+    // 設定した日時になった時に通知する
 }
 
