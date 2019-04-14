@@ -18,8 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
+        // 初期ページを保存or取得する
+        if let initPageIndex = UserDefaults.standard.value(forKey: "initPageIndex") as? Int {
+            UserDefaults.standard.set(initPageIndex, forKey: "initPageIndex")
+        } else {
+            UserDefaults.standard.set(1, forKey: "initPageIndex")
+        }
+        
+        // 初期画面を設定する
         if let tabvc = self.window!.rootViewController as? UITabBarController  {
-            tabvc.selectedIndex = 1
+            if let initPageIndex = UserDefaults.standard.value(forKey: "initPageIndex") as? Int {
+                tabvc.selectedIndex = initPageIndex
+            }
         }
         return true
     }

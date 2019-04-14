@@ -22,6 +22,9 @@
 		919D26372206810400C7B7C6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919D26352206810400C7B7C6 /* Main.storyboard */; };
 		919D26392206810500C7B7C6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 919D26382206810500C7B7C6 /* Assets.xcassets */; };
 		919D263C2206810500C7B7C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919D263A2206810500C7B7C6 /* LaunchScreen.storyboard */; };
+		91A16EE622636B22008CE94C /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A16EE522636B22008CE94C /* SettingTableViewController.swift */; };
+		91A16EE82263786E008CE94C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A16EE72263786E008CE94C /* SettingViewController.swift */; };
+		91A16EEA2263BDCC008CE94C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A16EE92263BDCC008CE94C /* MessageUI.framework */; };
 		91EB634F225CCE8B0041A683 /* TabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB634E225CCE8B0041A683 /* TabBarDelegate.swift */; };
 		91EB6353225CCF0A0041A683 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB6352225CCF0A0041A683 /* TabBarController.swift */; };
 		91FA7568222807E10026424A /* NSNotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA7567222807E10026424A /* NSNotification+Extension.swift */; };
@@ -47,6 +50,9 @@
 		919D26382206810500C7B7C6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		919D263B2206810500C7B7C6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		919D263D2206810500C7B7C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		91A16EE522636B22008CE94C /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
+		91A16EE72263786E008CE94C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		91A16EE92263BDCC008CE94C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		91EB634E225CCE8B0041A683 /* TabBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDelegate.swift; sourceTree = "<group>"; };
 		91EB6352225CCF0A0041A683 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		91FA7567222807E10026424A /* NSNotification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+Extension.swift"; sourceTree = "<group>"; };
@@ -57,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				91A16EEA2263BDCC008CE94C /* MessageUI.framework in Frameworks */,
 				2A019A9AC3802E46ACD88DB6 /* Pods_TodaysToDo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -76,6 +83,7 @@
 		5E8B01B2984BE64BF3C493C1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				91A16EE92263BDCC008CE94C /* MessageUI.framework */,
 				23AA41342D1548AABBAA903E /* Pods_TodaysToDo.framework */,
 			);
 			name = Frameworks;
@@ -99,6 +107,8 @@
 				9100FADE22219BBD0077AA9B /* FirstViewController.swift */,
 				9100FADF22219BBD0077AA9B /* SecondViewController.swift */,
 				9100FADD22219BBD0077AA9B /* ThirdViewController.swift */,
+				91A16EE72263786E008CE94C /* SettingViewController.swift */,
+				91A16EE522636B22008CE94C /* SettingTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -295,7 +305,9 @@
 				9100FAEA22219BBD0077AA9B /* SecondViewController.swift in Sources */,
 				91958E89222FF99D00C8CF66 /* TodaysToDoTableViewCell.swift in Sources */,
 				91EB634F225CCE8B0041A683 /* TabBarDelegate.swift in Sources */,
+				91A16EE622636B22008CE94C /* SettingTableViewController.swift in Sources */,
 				9100FAEB22219BBD0077AA9B /* ToDo.swift in Sources */,
+				91A16EE82263786E008CE94C /* SettingViewController.swift in Sources */,
 				9100FAE922219BBD0077AA9B /* FirstViewController.swift in Sources */,
 				9100FAEC22219BBD0077AA9B /* ToDoListTableViewCell.swift in Sources */,
 				9100FAE622219BBD0077AA9B /* AppDelegate.swift in Sources */,

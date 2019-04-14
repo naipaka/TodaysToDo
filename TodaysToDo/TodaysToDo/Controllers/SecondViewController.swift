@@ -126,6 +126,6 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
             object: nil)
     }
     
-    // 設定した日時になった時に通知する
+    
 }
 
