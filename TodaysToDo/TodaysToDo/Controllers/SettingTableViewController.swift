@@ -100,7 +100,7 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
             mail.mailComposeDelegate = self
             mail.setToRecipients(["naipakalab@gmail.com"]) // 宛先アドレス
             mail.setSubject("お問い合わせ") // 件名
-            mail.setMessageBody("ここに本文が入ります。", isHTML: false) // 本文
+            mail.setMessageBody("ご意見・ご要望をお書きください。", isHTML: false) // 本文
             present(mail, animated: true, completion: nil)
         } else {
             print("送信できません")

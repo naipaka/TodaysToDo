@@ -25,6 +25,7 @@
 		91A16EE622636B22008CE94C /* SettingTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A16EE522636B22008CE94C /* SettingTableViewController.swift */; };
 		91A16EE82263786E008CE94C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A16EE72263786E008CE94C /* SettingViewController.swift */; };
 		91A16EEA2263BDCC008CE94C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A16EE92263BDCC008CE94C /* MessageUI.framework */; };
+		91A16EF12263D241008CE94C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 91A16EF02263D241008CE94C /* Settings.bundle */; };
 		91EB634F225CCE8B0041A683 /* TabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB634E225CCE8B0041A683 /* TabBarDelegate.swift */; };
 		91EB6353225CCF0A0041A683 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB6352225CCF0A0041A683 /* TabBarController.swift */; };
 		91FA7568222807E10026424A /* NSNotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA7567222807E10026424A /* NSNotification+Extension.swift */; };
@@ -53,6 +54,7 @@
 		91A16EE522636B22008CE94C /* SettingTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewController.swift; sourceTree = "<group>"; };
 		91A16EE72263786E008CE94C /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		91A16EE92263BDCC008CE94C /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		91A16EF02263D241008CE94C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = TodaysToDo/Settings.bundle; sourceTree = "<group>"; };
 		91EB634E225CCE8B0041A683 /* TabBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDelegate.swift; sourceTree = "<group>"; };
 		91EB6352225CCF0A0041A683 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		91FA7567222807E10026424A /* NSNotification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+Extension.swift"; sourceTree = "<group>"; };
@@ -135,6 +137,7 @@
 		919D26232206810400C7B7C6 = {
 			isa = PBXGroup;
 			children = (
+				91A16EF02263D241008CE94C /* Settings.bundle */,
 				919D262E2206810400C7B7C6 /* TodaysToDo */,
 				919D262D2206810400C7B7C6 /* Products */,
 				4319270EABD997CAE0C22EB4 /* Pods */,
@@ -186,6 +189,7 @@
 				919D26292206810400C7B7C6 /* Frameworks */,
 				919D262A2206810400C7B7C6 /* Resources */,
 				33304267E2232D822A8C8B72 /* [CP] Embed Pods Frameworks */,
+				91A16EEB2263CD9F008CE94C /* LicensePlist */,
 			);
 			buildRules = (
 			);
@@ -238,6 +242,7 @@
 				919D26392206810500C7B7C6 /* Assets.xcassets in Resources */,
 				919D26372206810400C7B7C6 /* Main.storyboard in Resources */,
 				9100FAED22219BBD0077AA9B /* ToDoListTableViewCell.xib in Resources */,
+				91A16EF12263D241008CE94C /* Settings.bundle in Resources */,
 				91958E8A222FF99D00C8CF66 /* TodaysToDoTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -294,6 +299,24 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		91A16EEB2263CD9F008CE94C /* LicensePlist */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = LicensePlist;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if [ $CONFIGURATION = \"Debug\" ]; then\n${PODS_ROOT}/LicensePlist/license-plist --output-path $PRODUCT_NAME/Settings.bundle\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
