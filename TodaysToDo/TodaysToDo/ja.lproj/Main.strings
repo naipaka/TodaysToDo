@@ -1,0 +1,57 @@
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "17y-bL-xLL"; */
+"17y-bL-xLL.normalTitle" = "Button";
+
+/* Class = "UITableViewSection"; headerTitle = "一般"; ObjectID = "2D2-Aq-gef"; */
+"2D2-Aq-gef.headerTitle" = "一般";
+
+/* Class = "UILabel"; text = "Inbox"; ObjectID = "3I0-ex-mJJ"; */
+"3I0-ex-mJJ.text" = "Inbox";
+
+/* Class = "UILabel"; text = "開発者のTwitter"; ObjectID = "4sf-Va-Lhd"; */
+"4sf-Va-Lhd.text" = "開発者のTwitter";
+
+/* Class = "UILabel"; text = "Setting"; ObjectID = "A7f-pQ-yjL"; */
+"A7f-pQ-yjL.text" = "Setting";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "E8n-DO-ung"; */
+"E8n-DO-ung.text" = "Detail";
+
+/* Class = "UILabel"; text = "Calendar"; ObjectID = "F9v-2F-BT9"; */
+"F9v-2F-BT9.text" = "Calendar";
+
+/* Class = "UITableViewSection"; headerTitle = "アプリについて"; ObjectID = "KCY-SZ-qlg"; */
+"KCY-SZ-qlg.headerTitle" = "アプリについて";
+
+/* Class = "UITabBarItem"; title = "Calendar"; ObjectID = "N4P-BU-en8"; */
+"N4P-BU-en8.title" = "Calendar";
+
+/* Class = "UIButton"; normalTitle = "追加"; ObjectID = "S3Y-92-JTU"; */
+"S3Y-92-JTU.normalTitle" = "追加";
+
+/* Class = "UILabel"; text = "アプリを評価する"; ObjectID = "Tnn-5t-wSJ"; */
+"Tnn-5t-wSJ.text" = "アプリを評価する";
+
+/* Class = "UILabel"; text = "起動時の初期画面"; ObjectID = "Vf8-vd-yRQ"; */
+"Vf8-vd-yRQ.text" = "起動時の初期画面";
+
+/* Class = "UILabel"; text = "ご意見・ご要望"; ObjectID = "XyR-th-mDA"; */
+"XyR-th-mDA.text" = "ご意見・ご要望";
+
+/* Class = "UITabBarItem"; title = "Inbox"; ObjectID = "acW-dT-cKf"; */
+"acW-dT-cKf.title" = "Inbox";
+
+/* Class = "UILabel"; text = "Today's ToDo"; ObjectID = "bFi-rw-o6O"; */
+"bFi-rw-o6O.text" = "Today's ToDo";
+
+/* Class = "UITabBarItem"; title = "Today"; ObjectID = "cPa-gy-q4n"; */
+"cPa-gy-q4n.title" = "Today";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "iZe-d8-f7w"; */
+"iZe-d8-f7w.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "ToDo"; ObjectID = "of0-jZ-bnU"; */
+"of0-jZ-bnU.text" = "ToDo";
+
+/* Class = "UILabel"; text = "バージョン"; ObjectID = "pK9-3O-4rB"; */
+"pK9-3O-4rB.text" = "バージョン";
