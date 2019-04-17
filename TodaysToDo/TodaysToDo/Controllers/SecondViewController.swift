@@ -33,9 +33,6 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
         todaysToDoTableView.register(UINib(nibName: "TodaysToDoTableViewCell", bundle: nil), forCellReuseIdentifier: "TodaysToDoTableViewCell")
         todaysToDoTableView.tableFooterView = UIView()
         todaysToDoTableView.allowsSelection = false
-        
-        // 通知センターの登録
-        registerNotification()
     }
     
     // 今日の始まりと終わりを取得
@@ -90,42 +87,5 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
         }
         todaysToDoTableView.reloadData()
     }
-    
-    // バッチを設定する
-    @objc func setBadgeCount(_ notification: NSNotification){
-        let notDoneToDoList: Results<ToDo>!
-        var notDoneToDoListCount = 0
-        // Realmからデータを取得
-        do {
-            let realm = try Realm()
-            let predicate = NSPredicate(format: "done = false AND %@ =< startDateTime AND startDateTime < %@", getBeginingAndEndOfToday().beginingOfToday as CVarArg, getBeginingAndEndOfToday().endOfToday as CVarArg)
-            notDoneToDoList = realm.objects(ToDo.self).filter(predicate).sorted(byKeyPath: "startDateTime")
-            notDoneToDoListCount = notDoneToDoList.count
-        } catch {
-        }
-        UIApplication.shared.applicationIconBadgeNumber = notDoneToDoListCount
-    }
-    
-    // 通知センターの登録
-    private func registerNotification() {
-        // 通知センターの取得
-        let notification =  NotificationCenter.default
-        
-        // アプリが終了する直前
-        notification.addObserver(
-            self,
-            selector: #selector(self.setBadgeCount(_:)),
-            name:UIApplication.willTerminateNotification,
-            object: nil)
-        
-        // アプリがバックグラウンドになるとき
-        notification.addObserver(
-            self,
-            selector: #selector(self.setBadgeCount(_:)),
-            name:UIApplication.didEnterBackgroundNotification,
-            object: nil)
-    }
-    
-    
 }
 

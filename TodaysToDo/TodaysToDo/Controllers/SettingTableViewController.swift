@@ -47,9 +47,9 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
         let tapRequestMailCell: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(sendRequestMail(_:)))
         requestMailCell.addGestureRecognizer(tapRequestMailCell)
         
-//        // 「アプリを評価する」セルが押された時のgesture
-//        let tapRequestReviewCell: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(reauestReview(_:)))
-//        requestReviewCell.addGestureRecognizer(tapRequestReviewCell)
+        // 「アプリを評価する」セルが押された時のgesture
+        let tapRequestReviewCell: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(requestReview(_:)))
+        requestReviewCell.addGestureRecognizer(tapRequestReviewCell)
         
         // 「開発者のTwitter」セルが押された時のgesture
         let tapTwitterAccountOfDeveloperCell: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openTwitter(_:)))
@@ -121,11 +121,17 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
         dismiss(animated: true, completion: nil)
     }
     
-//    // アプリページを開く
-//    @objc func reauestReview(_ sender: UITapGestureRecognizer) {
-//        guard let url = URL(string: "https://itunes.apple.com/app/id{Apple ID}?action=write-review") else { return }
-//        UIApplication.shared.open(url)
-    //    }
+    // セルがタップされた時の処理
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        tableView.deselectRow(at: indexPath as IndexPath, animated: true)
+    }
+    
+    // アプリページを開く
+    @objc func requestReview(_ sender: UITapGestureRecognizer) {
+        guard let url = URL(string: "https://itunes.apple.com/app/id1460136681?action=write-review") else { return }
+        UIApplication.shared.open(url)
+        }
     
     // twitterを開く
     @objc func openTwitter(_ sender: UITapGestureRecognizer) {
