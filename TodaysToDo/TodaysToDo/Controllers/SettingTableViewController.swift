@@ -14,6 +14,7 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
     
     
     @IBOutlet weak var initPageLabel: UILabel!
+    @IBOutlet weak var eventLabel: UILabel!
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var requestMailCell: UITableViewCell!
     @IBOutlet weak var requestReviewCell: UITableViewCell!
@@ -43,6 +44,20 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
             initPageLabel.text = "Inbox"
         }
         
+        // 「タスク完了時のイベント」セルがタップされた時のgestureをisEventLabelに設定
+        let tapEventLabel: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeEventLabel(_:)))
+        eventLabel.addGestureRecognizer(tapEventLabel)
+        
+        guard let hasEvent = UserDefaults.standard.value(forKey: "hasEvent") as! Bool? else {
+            return
+        }
+        
+        if hasEvent {
+            eventLabel.text = "表示"
+        } else {
+            eventLabel.text = "非表示"
+        }
+        
         // 「ご意見・ご要望」セルが押された時のgesture
         let tapRequestMailCell: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(sendRequestMail(_:)))
         requestMailCell.addGestureRecognizer(tapRequestMailCell)
@@ -66,7 +81,7 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
         // それぞれのセクションにいくつセルがあるかを返す
         switch section {
         case 0: // 「一般」のセクション
-            return 1
+            return 2
         case 1: // 「アプリについて」のセクション
             return 4
         default:
@@ -76,7 +91,6 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
     
     // 初期画面を変更する
     @objc func changeInitPage(_ sender: UITapGestureRecognizer) {
-        
         guard let initPageIndex = UserDefaults.standard.value(forKey: "initPageIndex") as! Int? else {
             return
         }
@@ -90,6 +104,20 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
         } else {
             initPageLabel.text = "TodaysToDo"
             UserDefaults.standard.set(1, forKey: "initPageIndex")
+        }
+    }
+    
+    @objc func changeEventLabel(_ sender: UITapGestureRecognizer) {
+        guard let hasEvent = UserDefaults.standard.value(forKey: "hasEvent") as! Bool? else {
+            return
+        }
+        
+        if hasEvent {
+            eventLabel.text = "非表示"
+            UserDefaults.standard.set(false, forKey: "hasEvent")
+        } else {
+            eventLabel.text = "表示"
+            UserDefaults.standard.set(true, forKey: "hasEvent")
         }
     }
     

@@ -17,15 +17,13 @@ class UserNotification {
         // 設定済みのタスクリストを取得
         var settedToDoList: Results<ToDo>!
         let center = UNUserNotificationCenter.current()
-        var indexIndentifier = 0
-        // 全ての通知済みの通知を削除する
         center.removeAllDeliveredNotifications()
         // 全てのpendingな通知を削除する
         center.removeAllPendingNotificationRequests()
         
         do {
             let realm = try Realm()
-            let predicate = NSPredicate(format: "startDateTime != nil AND done = false AND startDateTime < %@", Date() as CVarArg)
+            let predicate = NSPredicate(format: "done = false AND startDateTime > %@", Date() as CVarArg)
             settedToDoList = realm.objects(ToDo.self).filter(predicate)
         } catch {
         }
@@ -52,8 +50,8 @@ class UserNotification {
             content.sound = UNNotificationSound.default
             
             // 通知スタイルを指定
-            let request = UNNotificationRequest(identifier: String(indexIndentifier), content: content, trigger: trigger)
-            indexIndentifier += 1
+            let identifier = NSUUID().uuidString
+            let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
             // 通知をセット
             center.add(request, withCompletionHandler: nil)
         }

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,6 +23,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             UserDefaults.standard.set(initPageIndex, forKey: "initPageIndex")
         } else {
             UserDefaults.standard.set(1, forKey: "initPageIndex")
+        }
+        
+        // 初期設定
+        if let hasEvent = UserDefaults.standard.value(forKey: "hasEvent") as? Bool {
+            print(hasEvent)
+            UserDefaults.standard.set(hasEvent, forKey: "hasEvent")
+        } else {
+            UserDefaults.standard.set(true, forKey: "hasEvent")
         }
         
         // 初期画面を設定する
@@ -53,7 +62,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         userNotification.setBadgeCount()
         userNotification.setUserNotification()
     }
+}
 
-
+extension AppDelegate: UNUserNotificationCenterDelegate{
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // アプリ起動中でもアラートと音で通知
+        completionHandler([.alert, .sound])
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        completionHandler()
+        
+    }
 }
 

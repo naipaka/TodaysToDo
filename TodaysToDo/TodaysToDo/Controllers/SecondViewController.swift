@@ -86,6 +86,29 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
         } catch {
         }
         todaysToDoTableView.reloadData()
+        
+        presentModal()
+    }
+    
+    // モーダル表示処理
+    func presentModal() {
+        guard let hasEvent = UserDefaults.standard.value(forKey: "hasEvent") as! Bool? else {
+            return
+        }
+        
+        if hasEvent {
+            var doneList: Results<ToDo>!
+            do {
+                let realm = try Realm()
+                let predicate = NSPredicate(format: "done = true")
+                doneList = realm.objects(ToDo.self).filter(predicate)
+            } catch {
+            }
+            if doneList.count == 3 {
+                // モーダルを表示
+                performSegue(withIdentifier: "ModalSegue", sender: nil)
+            }
+        }
     }
 }
 
