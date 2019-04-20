@@ -27,7 +27,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // 初期設定
         if let hasEvent = UserDefaults.standard.value(forKey: "hasEvent") as? Bool {
-            print(hasEvent)
             UserDefaults.standard.set(hasEvent, forKey: "hasEvent")
         } else {
             UserDefaults.standard.set(true, forKey: "hasEvent")
@@ -61,6 +60,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         userNotification.setBadgeCount()
         userNotification.setUserNotification()
+    }
+    
+    func applicationSignificantTimeChange(_ applicatio: UIApplication) {
+        userNotification.setBadgeCount()
     }
 }
 

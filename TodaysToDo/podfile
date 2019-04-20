@@ -9,6 +9,6 @@ target 'TodaysToDo' do
   pod 'RealmSwift'
   pod 'FSCalendar'
   pod 'CalculateCalendarLogic'
-  pod 'LicensePlist' 
+  pod 'LicensePlist'
 
 end

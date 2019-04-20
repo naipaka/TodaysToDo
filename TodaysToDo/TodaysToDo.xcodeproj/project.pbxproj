@@ -195,9 +195,9 @@
 				6F71F75B5F3BF7C8E13404EC /* [CP] Check Pods Manifest.lock */,
 				919D26282206810400C7B7C6 /* Sources */,
 				919D26292206810400C7B7C6 /* Frameworks */,
-				919D262A2206810400C7B7C6 /* Resources */,
 				33304267E2232D822A8C8B72 /* [CP] Embed Pods Frameworks */,
 				91A16EEB2263CD9F008CE94C /* LicensePlist */,
+				919D262A2206810400C7B7C6 /* Resources */,
 			);
 			buildRules = (
 			);
