@@ -15,7 +15,7 @@ class TutorialSecondViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descriptionLabel.text = "追加したタスクのタイトルをタップすると、タイトルを変更することもできます。"
+        descriptionLabel.text = "タスクのタイトルをタップすると、タイトルを変更できます。日付をタップして開始日時を選択し、「設定」ボタンを押して、あとはやるだけ！"
         //表示可能最大行数を指定
         descriptionLabel.numberOfLines = 10
         //contentsのサイズに合わせてobujectのサイズを変える

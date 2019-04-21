@@ -15,7 +15,7 @@ class TutorialSixthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descriptionLabel.text = "Calendar画面ではどの日にいくつタスクが入っているか、またそのタスクの内容を把握することができます。"
+        descriptionLabel.text = "【Calendar画面】どの日にいくつタスクが入っているか、またそのタスクの内容を把握できます。"
         //表示可能最大行数を指定
         descriptionLabel.numberOfLines = 10
         //contentsのサイズに合わせてobujectのサイズを変える

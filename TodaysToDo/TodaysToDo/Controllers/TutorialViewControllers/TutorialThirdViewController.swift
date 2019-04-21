@@ -15,7 +15,7 @@ class TutorialThirdViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descriptionLabel.text = "タスクを左にスワイプすることで削除することができます。Inbox画面でしか追加したタスクを削除できません！"
+        descriptionLabel.text = "タスクを左にスワイプすると削除できます。Inbox画面でのみ追加したタスクを削除できます。"
         //表示可能最大行数を指定
         descriptionLabel.numberOfLines = 10
         //contentsのサイズに合わせてobujectのサイズを変える

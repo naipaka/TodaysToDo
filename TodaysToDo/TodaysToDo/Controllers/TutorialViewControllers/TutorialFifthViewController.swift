@@ -15,7 +15,7 @@ class TutorialFifthViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descriptionLabel.text = "タスクが完了した時は対象のタスクをタップしましょう！翌日を迎えた時完了済みになっているタスクは削除され、未完了のタスクはInbox画面に戻ります。"
+        descriptionLabel.text = "タスクが完了した時は対象のタスクをタップしましょう！日付が変わった時、完了済みになっているタスクは削除され、未完了のタスクはInbox画面に戻されます。"
         //表示可能最大行数を指定
         descriptionLabel.numberOfLines = 10
         //contentsのサイズに合わせてobujectのサイズを変える
