@@ -1,6 +1,7 @@
 PODS:
   - CalculateCalendarLogic (0.2.5)
   - FSCalendar (2.8.0)
+  - LicensePlist (2.5.0)
   - Realm (3.14.1):
     - Realm/Headers (= 3.14.1)
   - Realm/Headers (3.14.1)
@@ -10,21 +11,24 @@ PODS:
 DEPENDENCIES:
   - CalculateCalendarLogic
   - FSCalendar
+  - LicensePlist
   - RealmSwift
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - CalculateCalendarLogic
     - FSCalendar
+    - LicensePlist
     - Realm
     - RealmSwift
 
 SPEC CHECKSUMS:
   CalculateCalendarLogic: 27db31b8f27a42869ecf7ad0d43963a05af14193
   FSCalendar: 3a5ed3636e2ba1b83ebebfcf0c2603105a6f5efe
+  LicensePlist: e5f8f2e3465620e53ec4c669955a5a7d0692b9cb
   Realm: e12c9c2387d05c5bba3a9c394838f5870e85763b
   RealmSwift: a82eab9b04c3e1616082c7e17aa300740847769c
 
-PODFILE CHECKSUM: 48e3f9d81af514899ce84ac3ee24c96a1c3cf934
+PODFILE CHECKSUM: 8c5a3f60857b4e95afadf1664db0ffc6399b1cac
 
 COCOAPODS: 1.6.0

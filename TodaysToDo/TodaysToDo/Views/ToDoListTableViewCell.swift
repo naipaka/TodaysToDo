@@ -39,8 +39,9 @@ class ToDoListTableViewCell: UITableViewCell {
         
         // ToDoのタイトルのtextを設定する
         toDoTitle.text = todo.title
-        // ToDoのタイトルの文字の大きさを幅に合わせるように設定する
+        // 文字の大きさを幅に合わせるように設定する
         toDoTitle.adjustsFontSizeToFitWidth = true
+        startDateTime.adjustsFontSizeToFitWidth = true
         // ToDoのタイトルをタップ可能に設定する。
         toDoTitle.isUserInteractionEnabled = true
         
@@ -48,5 +49,10 @@ class ToDoListTableViewCell: UITableViewCell {
         let tapToDoTitleGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapToDoTitle(_:)))
         // ToDoのタイトルに設定したGestureを設定する
         toDoTitle.addGestureRecognizer(tapToDoTitleGesture)
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        startDateTime.commoninit()
     }
 }

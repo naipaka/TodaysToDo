@@ -13,10 +13,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="144" id="KGk-i7-Jjw" customClass="ToDoListTableViewCell" customModule="TodaysToDo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="320" height="150.5"/>
-            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="150"/>
+            <rect key="frame" x="0.0" y="0.0" width="320" height="151"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="150.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dKM-fo-YuT">
@@ -25,21 +25,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1AY-1o-oG0">
                                 <rect key="frame" x="0.0" y="70" width="320" height="70"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="開始日時：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GoK-tv-UNU">
-                                        <rect key="frame" x="8" y="23" width="102" height="24"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" adjustsFontSizeToFit="NO" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="Wnt-jq-0qD" customClass="DatePickerKeyboard" customModule="TodaysToDo" customModuleProvider="target">
+                                        <rect key="frame" x="15" y="18" width="248" height="34"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="102" id="270-Yt-fAL"/>
-                                            <constraint firstAttribute="height" constant="24" id="pSc-bK-OUg"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wnt-jq-0qD" customClass="DatePickerKeyboard" customModule="TodaysToDo" customModuleProvider="target">
-                                        <rect key="frame" x="105" y="18" width="158" height="34"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="158" id="2rs-Cw-aGC"/>
-                                            <constraint firstAttribute="height" constant="34" id="Zxd-f0-UZI"/>
+                                            <constraint firstAttribute="width" constant="248" id="Wut-sE-ovb"/>
+                                            <constraint firstAttribute="height" constant="34" id="tOg-dY-OWR"/>
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
@@ -68,18 +58,13 @@
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="320" id="11X-us-nYC"/>
-                                    <constraint firstItem="UQz-UL-dD8" firstAttribute="leading" secondItem="GoK-tv-UNU" secondAttribute="trailing" constant="161" id="Mq7-hs-jFa"/>
-                                    <constraint firstAttribute="bottom" secondItem="GoK-tv-UNU" secondAttribute="bottom" constant="23" id="RIn-Du-MjM"/>
+                                    <constraint firstAttribute="bottom" secondItem="Wnt-jq-0qD" secondAttribute="bottom" constant="18" id="A0d-nL-hpo"/>
+                                    <constraint firstItem="Wnt-jq-0qD" firstAttribute="top" secondItem="1AY-1o-oG0" secondAttribute="top" constant="18" id="I9h-ON-uaH"/>
                                     <constraint firstAttribute="bottom" secondItem="UQz-UL-dD8" secondAttribute="bottom" constant="18" id="SOt-l1-vcu"/>
                                     <constraint firstAttribute="height" constant="70" id="TEM-fZ-Yge"/>
-                                    <constraint firstItem="GoK-tv-UNU" firstAttribute="top" secondItem="1AY-1o-oG0" secondAttribute="top" constant="23" id="b6N-iI-YSS"/>
-                                    <constraint firstItem="UQz-UL-dD8" firstAttribute="leading" secondItem="Wnt-jq-0qD" secondAttribute="trailing" constant="8" id="cbT-6f-Dz4"/>
+                                    <constraint firstItem="Wnt-jq-0qD" firstAttribute="leading" secondItem="1AY-1o-oG0" secondAttribute="leading" constant="15" id="bbG-4R-ACj"/>
                                     <constraint firstAttribute="trailing" secondItem="UQz-UL-dD8" secondAttribute="trailing" constant="8" id="gTa-bV-hv7"/>
-                                    <constraint firstItem="Wnt-jq-0qD" firstAttribute="top" secondItem="1AY-1o-oG0" secondAttribute="top" constant="18" id="hbC-FO-sQX"/>
-                                    <constraint firstAttribute="bottom" secondItem="Wnt-jq-0qD" secondAttribute="bottom" constant="18" id="o1C-DZ-iHP"/>
-                                    <constraint firstItem="Wnt-jq-0qD" firstAttribute="leading" secondItem="1AY-1o-oG0" secondAttribute="leading" constant="105" id="pCU-9L-9Vo"/>
-                                    <constraint firstItem="UQz-UL-dD8" firstAttribute="leading" secondItem="Wnt-jq-0qD" secondAttribute="trailing" constant="8" id="qfK-MD-wBj"/>
-                                    <constraint firstItem="GoK-tv-UNU" firstAttribute="leading" secondItem="1AY-1o-oG0" secondAttribute="leading" constant="8" id="sHl-c0-oEZ"/>
+                                    <constraint firstItem="UQz-UL-dD8" firstAttribute="leading" secondItem="Wnt-jq-0qD" secondAttribute="trailing" constant="8" id="oHs-Cn-DhQ"/>
                                     <constraint firstItem="UQz-UL-dD8" firstAttribute="top" secondItem="1AY-1o-oG0" secondAttribute="top" constant="16" id="ufS-NF-swm"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>

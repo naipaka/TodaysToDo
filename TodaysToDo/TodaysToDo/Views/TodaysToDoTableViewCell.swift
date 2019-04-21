@@ -22,6 +22,15 @@ class TodaysToDoTableViewCell: UITableViewCell {
     @IBOutlet weak private var doneLine: UIView!
     private var todaysToDoTableViewCellDelegate: TodaysToDoTableViewCellDelegate?
     
+    override func awakeFromNib() {
+        // doneLineの位置を調整する
+        doneLine.frame =
+            CGRect(x:((todaysToDoCell.bounds.width-320)/2),
+                   y:((todaysToDoView.frame.maxY + todaysToDoView.frame.minY)/2),
+                   width:todaysToDoCell.bounds.width,
+                   height:10)
+    }
+    
     // cellをタップした時の処理
     @objc func tapTodaysToDoView(_ sender: UITapGestureRecognizer) {
         if doneLine.isHidden {
@@ -36,11 +45,12 @@ class TodaysToDoTableViewCell: UITableViewCell {
         // 引数delegateに処理をDelegateする設定をする
         todaysToDoTableViewCellDelegate = delegate
         // cellの形を丸枠にする
-        todaysToDoView.layer.cornerRadius = 30
+        todaysToDoView.layer.cornerRadius = 35
         // ToDoのタイトルのtextを設定する
         todaysToDo.text = argTodaysToDo.title
         // ToDoの開始時間を設定する
         startTime.text = toStringStartTime(startDateTime: argTodaysToDo.startDateTime!)
+        
         
         // 実行状況に応じてセルのデザインを変える
         if argDone {

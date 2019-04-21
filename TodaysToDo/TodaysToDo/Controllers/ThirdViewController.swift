@@ -86,22 +86,6 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         return nil
     }
     
-    @IBAction func nextTapped(_ sender:UIButton) {
-        calendar.setCurrentPage(getNextMonth(date: calendar.currentPage), animated: true)
-    }
-
-    @IBAction  func previousTapped(_ sender:UIButton) {
-        calendar.setCurrentPage(getPreviousMonth(date: calendar.currentPage), animated: true)
-    }
-
-    func getNextMonth(date:Date)->Date {
-        return  Calendar.current.date(byAdding: .month, value: 1, to:date)!
-    }
-
-    func getPreviousMonth(date:Date)->Date {
-        return  Calendar.current.date(byAdding: .month, value: -1, to:date)!
-    }
-    
     // 日付選択時の処理
     func calendar(_ calendar: FSCalendar, didSelect date: Date, at monthPosition: FSCalendarMonthPosition){
         // Realmからデータを取得
@@ -131,6 +115,11 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let strStartTime = f.string(from: calendarsToDoList[indexPath.row].startDateTime!)
         let strToDoTitle = calendarsToDoList[indexPath.row].title
         cell.textLabel!.text = strStartTime + " 〜　" + strToDoTitle
+        
+        // 実行済みの場合
+        if calendarsToDoList[indexPath.row].done {
+            cell.backgroundColor = UIColor.lightGray
+        }
         
         return cell
     }
