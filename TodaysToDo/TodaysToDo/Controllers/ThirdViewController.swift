@@ -119,6 +119,8 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // 実行済みの場合
         if calendarsToDoList[indexPath.row].done {
             cell.backgroundColor = UIColor.lightGray
+        } else {
+            cell.backgroundColor = UIColor.white
         }
         
         return cell
