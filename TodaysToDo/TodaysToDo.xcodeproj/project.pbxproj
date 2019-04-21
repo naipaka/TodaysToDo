@@ -28,6 +28,14 @@
 		91A16EE82263786E008CE94C /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A16EE72263786E008CE94C /* SettingViewController.swift */; };
 		91A16EEA2263BDCC008CE94C /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 91A16EE92263BDCC008CE94C /* MessageUI.framework */; };
 		91A16EF12263D241008CE94C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 91A16EF02263D241008CE94C /* Settings.bundle */; };
+		91D8E3F5226B543F008D3D6F /* TutorialSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E3F1226B543F008D3D6F /* TutorialSecondViewController.swift */; };
+		91D8E3F6226B543F008D3D6F /* TutorialFirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E3F2226B543F008D3D6F /* TutorialFirstViewController.swift */; };
+		91D8E3F7226B543F008D3D6F /* TutorialThirdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E3F3226B543F008D3D6F /* TutorialThirdViewController.swift */; };
+		91D8E3F8226B543F008D3D6F /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E3F4226B543F008D3D6F /* PageViewController.swift */; };
+		91D8E3FA226B5907008D3D6F /* TutorialFourthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E3F9226B5907008D3D6F /* TutorialFourthViewController.swift */; };
+		91D8E3FC226B5931008D3D6F /* TutorialFifthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E3FB226B5931008D3D6F /* TutorialFifthViewController.swift */; };
+		91D8E3FE226B5950008D3D6F /* TutorialSixthViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E3FD226B5950008D3D6F /* TutorialSixthViewController.swift */; };
+		91D8E400226B596E008D3D6F /* TutorialSeventhViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91D8E3FF226B596E008D3D6F /* TutorialSeventhViewController.swift */; };
 		91EB634F225CCE8B0041A683 /* TabBarDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB634E225CCE8B0041A683 /* TabBarDelegate.swift */; };
 		91EB6353225CCF0A0041A683 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91EB6352225CCF0A0041A683 /* TabBarController.swift */; };
 		91FA7568222807E10026424A /* NSNotification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91FA7567222807E10026424A /* NSNotification+Extension.swift */; };
@@ -61,6 +69,14 @@
 		91A16EF02263D241008CE94C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = Settings.bundle; path = TodaysToDo/Settings.bundle; sourceTree = "<group>"; };
 		91A16EF22265DE18008CE94C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
 		91A16EF32265DE18008CE94C /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		91D8E3F1226B543F008D3D6F /* TutorialSecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialSecondViewController.swift; sourceTree = "<group>"; };
+		91D8E3F2226B543F008D3D6F /* TutorialFirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialFirstViewController.swift; sourceTree = "<group>"; };
+		91D8E3F3226B543F008D3D6F /* TutorialThirdViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TutorialThirdViewController.swift; sourceTree = "<group>"; };
+		91D8E3F4226B543F008D3D6F /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
+		91D8E3F9226B5907008D3D6F /* TutorialFourthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFourthViewController.swift; sourceTree = "<group>"; };
+		91D8E3FB226B5931008D3D6F /* TutorialFifthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialFifthViewController.swift; sourceTree = "<group>"; };
+		91D8E3FD226B5950008D3D6F /* TutorialSixthViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSixthViewController.swift; sourceTree = "<group>"; };
+		91D8E3FF226B596E008D3D6F /* TutorialSeventhViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TutorialSeventhViewController.swift; sourceTree = "<group>"; };
 		91EB634E225CCE8B0041A683 /* TabBarDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarDelegate.swift; sourceTree = "<group>"; };
 		91EB6352225CCF0A0041A683 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		91FA7567222807E10026424A /* NSNotification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSNotification+Extension.swift"; sourceTree = "<group>"; };
@@ -112,6 +128,7 @@
 		9100FADC22219BBD0077AA9B /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				91D8E3F0226B53B3008D3D6F /* TutorialViewControllers */,
 				91EB6352225CCF0A0041A683 /* TabBarController.swift */,
 				9100FADE22219BBD0077AA9B /* FirstViewController.swift */,
 				9100FADF22219BBD0077AA9B /* SecondViewController.swift */,
@@ -175,6 +192,21 @@
 				919D263D2206810500C7B7C6 /* Info.plist */,
 			);
 			path = TodaysToDo;
+			sourceTree = "<group>";
+		};
+		91D8E3F0226B53B3008D3D6F /* TutorialViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				91D8E3F4226B543F008D3D6F /* PageViewController.swift */,
+				91D8E3F2226B543F008D3D6F /* TutorialFirstViewController.swift */,
+				91D8E3F1226B543F008D3D6F /* TutorialSecondViewController.swift */,
+				91D8E3F3226B543F008D3D6F /* TutorialThirdViewController.swift */,
+				91D8E3F9226B5907008D3D6F /* TutorialFourthViewController.swift */,
+				91D8E3FB226B5931008D3D6F /* TutorialFifthViewController.swift */,
+				91D8E3FD226B5950008D3D6F /* TutorialSixthViewController.swift */,
+				91D8E3FF226B596E008D3D6F /* TutorialSeventhViewController.swift */,
+			);
+			path = TutorialViewControllers;
 			sourceTree = "<group>";
 		};
 		91FA75662228076B0026424A /* Extension */ = {
@@ -336,19 +368,27 @@
 				91934A4F22689A0600EC3CC5 /* ModalViewController.swift in Sources */,
 				9100FAEA22219BBD0077AA9B /* SecondViewController.swift in Sources */,
 				91958E89222FF99D00C8CF66 /* TodaysToDoTableViewCell.swift in Sources */,
+				91D8E3FA226B5907008D3D6F /* TutorialFourthViewController.swift in Sources */,
+				91D8E3F5226B543F008D3D6F /* TutorialSecondViewController.swift in Sources */,
 				91021A73226764C500628EC2 /* UserNotification.swift in Sources */,
+				91D8E400226B596E008D3D6F /* TutorialSeventhViewController.swift in Sources */,
 				91EB634F225CCE8B0041A683 /* TabBarDelegate.swift in Sources */,
 				91A16EE622636B22008CE94C /* SettingTableViewController.swift in Sources */,
 				9100FAEB22219BBD0077AA9B /* ToDo.swift in Sources */,
+				91D8E3F7226B543F008D3D6F /* TutorialThirdViewController.swift in Sources */,
+				91D8E3FC226B5931008D3D6F /* TutorialFifthViewController.swift in Sources */,
 				91A16EE82263786E008CE94C /* SettingViewController.swift in Sources */,
 				9100FAE922219BBD0077AA9B /* FirstViewController.swift in Sources */,
+				91D8E3F8226B543F008D3D6F /* PageViewController.swift in Sources */,
 				9100FAEC22219BBD0077AA9B /* ToDoListTableViewCell.swift in Sources */,
 				9100FAE622219BBD0077AA9B /* AppDelegate.swift in Sources */,
 				9100FAE722219BBD0077AA9B /* inspectable.swift in Sources */,
+				91D8E3F6226B543F008D3D6F /* TutorialFirstViewController.swift in Sources */,
 				9100FAE822219BBD0077AA9B /* ThirdViewController.swift in Sources */,
 				91EB6353225CCF0A0041A683 /* TabBarController.swift in Sources */,
 				9100FAE522219BBD0077AA9B /* DatePickerKeyboard.swift in Sources */,
 				91FA7568222807E10026424A /* NSNotification+Extension.swift in Sources */,
+				91D8E3FE226B5950008D3D6F /* TutorialSixthViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

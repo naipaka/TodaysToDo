@@ -116,6 +116,11 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let strToDoTitle = calendarsToDoList[indexPath.row].title
         cell.textLabel!.text = strStartTime + " 〜　" + strToDoTitle
         
+        // 実行済みの場合
+        if calendarsToDoList[indexPath.row].done {
+            cell.backgroundColor = UIColor.lightGray
+        }
+        
         return cell
     }
     

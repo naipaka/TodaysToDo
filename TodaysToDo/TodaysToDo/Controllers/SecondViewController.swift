@@ -35,6 +35,19 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
         todaysToDoTableView.allowsSelection = false
     }
     
+    override func viewDidLayoutSubviews() {
+        // チュートリアル画面を表示する
+        if let firstLaunch = UserDefaults.standard.value(forKey: "firstLaunch") as? Bool {
+            UserDefaults.standard.set(firstLaunch, forKey: "firstLaunch")
+        } else {
+            let storyboard: UIStoryboard = self.storyboard!
+            let tutorialFirstViewController = storyboard.instantiateViewController(withIdentifier: "PageViewController")
+            self.present(tutorialFirstViewController, animated: true, completion: nil)
+            
+            UserDefaults.standard.set(true, forKey: "firstLaunch")
+        }
+    }
+    
     // 今日の始まりと終わりを取得
     private func getBeginingAndEndOfToday() -> (beginingOfToday: Date , endOfToday: Date) {
         let beginingOfToday = Calendar(identifier: .gregorian).startOfDay(for: Date())

@@ -12,9 +12,11 @@ import SafariServices
 
 class SettingTableViewController: UITableViewController, MFMailComposeViewControllerDelegate{
     
-    
+    @IBOutlet weak var initPageCell: UITableViewCell!
     @IBOutlet weak var initPageLabel: UILabel!
+    @IBOutlet weak var eventCell: UITableViewCell!
     @IBOutlet weak var eventLabel: UILabel!
+    @IBOutlet weak var tutorialCell: UITableViewCell!
     @IBOutlet weak var versionLabel: UILabel!
     @IBOutlet weak var requestMailCell: UITableViewCell!
     @IBOutlet weak var requestReviewCell: UITableViewCell!
@@ -30,7 +32,7 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
         
         // 「起動時の初期画面」セルがタップされた時のgestureをinitLabelに設定
         let tapInitPageLabel: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeInitPage(_:)))
-        initPageLabel.addGestureRecognizer(tapInitPageLabel)
+        initPageCell.addGestureRecognizer(tapInitPageLabel)
         
         guard let initPageIndex = UserDefaults.standard.value(forKey: "initPageIndex") as! Int? else {
             return
@@ -46,7 +48,7 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
         
         // 「タスク完了時のイベント」セルがタップされた時のgestureをisEventLabelに設定
         let tapEventLabel: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(changeEventLabel(_:)))
-        eventLabel.addGestureRecognizer(tapEventLabel)
+        eventCell.addGestureRecognizer(tapEventLabel)
         
         guard let hasEvent = UserDefaults.standard.value(forKey: "hasEvent") as! Bool? else {
             return
@@ -57,6 +59,10 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
         } else {
             eventLabel.text = "非表示"
         }
+        
+        // 「チュートリアルをみる」セルがタップされた時のgestureをisEventLabelに設定
+        let tapTutorialCell: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(openTutorialPage(_:)))
+        tutorialCell.addGestureRecognizer(tapTutorialCell)
         
         // 「ご意見・ご要望」セルが押された時のgesture
         let tapRequestMailCell: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(sendRequestMail(_:)))
@@ -81,7 +87,7 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
         // それぞれのセクションにいくつセルがあるかを返す
         switch section {
         case 0: // 「一般」のセクション
-            return 2
+            return 3
         case 1: // 「アプリについて」のセクション
             return 4
         default:
@@ -119,6 +125,15 @@ class SettingTableViewController: UITableViewController, MFMailComposeViewContro
             eventLabel.text = "表示"
             UserDefaults.standard.set(true, forKey: "hasEvent")
         }
+    }
+    
+    @objc func openTutorialPage(_ sender: UITapGestureRecognizer) {
+        
+        let storyboard: UIStoryboard = self.storyboard!
+        
+        let tutorialFirstViewController = storyboard.instantiateViewController(withIdentifier: "PageViewController")
+        
+        self.present(tutorialFirstViewController, animated: true, completion: nil)
     }
     
     // メーラーを起動する

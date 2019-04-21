@@ -23,17 +23,17 @@
                         <rect key="frame" x="16" y="34" width="311" height="100"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10:00 〜" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tGS-ds-kUp">
-                                <rect key="frame" x="28" y="11" width="254" height="24"/>
+                                <rect key="frame" x="28" y="7" width="254" height="24"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="254" id="8bt-4Q-HO4"/>
-                                    <constraint firstAttribute="height" constant="24" id="zMF-14-NXH"/>
+                                    <constraint firstAttribute="width" constant="254" id="RR5-4P-qbC"/>
+                                    <constraint firstAttribute="height" constant="24" id="hVa-Bd-DrZ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="村長の話を聞く" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="gRF-uS-NkC">
-                                <rect key="frame" x="8" y="34" width="295" height="36"/>
+                                <rect key="frame" x="8" y="36" width="295" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                 <nil key="textColor"/>
@@ -42,10 +42,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="tGS-ds-kUp" firstAttribute="leading" secondItem="sGQ-cl-TFk" secondAttribute="leading" constant="28" id="7qp-2y-QEk"/>
-                            <constraint firstItem="tGS-ds-kUp" firstAttribute="top" secondItem="sGQ-cl-TFk" secondAttribute="top" constant="11" id="FTX-W3-O4H"/>
+                            <constraint firstItem="tGS-ds-kUp" firstAttribute="leading" secondItem="sGQ-cl-TFk" secondAttribute="leading" constant="28" id="3Br-29-NRF"/>
+                            <constraint firstItem="tGS-ds-kUp" firstAttribute="top" secondItem="sGQ-cl-TFk" secondAttribute="top" constant="7" id="M0H-ev-UVs"/>
+                            <constraint firstAttribute="trailing" secondItem="tGS-ds-kUp" secondAttribute="trailing" constant="29" id="ZCK-08-2Vc"/>
                             <constraint firstAttribute="height" constant="100" id="gfb-0u-g3O"/>
-                            <constraint firstAttribute="trailing" secondItem="tGS-ds-kUp" secondAttribute="trailing" constant="29" id="vcc-89-82D"/>
                             <constraint firstAttribute="width" constant="311" id="ztd-jl-dkj"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
