@@ -164,6 +164,7 @@ class ThirdViewController: UIViewController, UITableViewDelegate, UITableViewDat
     
     // 他画面から遷移した時にTableのデータを再読み込みする
     func didSelectTab(tabBarController: TabBarController) {
+        calendar.today = Date()
         calendar.reloadData()
         calendarsToDoListTableView.reloadData()
     }
