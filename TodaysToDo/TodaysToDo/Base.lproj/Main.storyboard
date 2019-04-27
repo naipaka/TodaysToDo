@@ -52,7 +52,6 @@
                                         <state key="normal" image="ShowKeyboardButton" backgroundImage="ShowKeyboardButtonBack"/>
                                         <connections>
                                             <action selector="showKeyboard:" destination="9pv-A4-QxB" eventType="touchUpInside" id="r2i-Eq-jM4"/>
-                                            <outletCollection property="gestureRecognizers" destination="DeE-Xq-Z5T" appends="YES" id="2Fa-cM-4rk"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -161,11 +160,6 @@
                         <action selector="hideKeyboard:" destination="9pv-A4-QxB" id="RJF-fQ-4QH"/>
                     </connections>
                 </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="DeE-Xq-Z5T">
-                    <connections>
-                        <action selector="dragingAddButton:" destination="9pv-A4-QxB" id="S4w-RV-TU2"/>
-                    </connections>
-                </panGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="749.60000000000002" y="-459.22038980509751"/>
         </scene>

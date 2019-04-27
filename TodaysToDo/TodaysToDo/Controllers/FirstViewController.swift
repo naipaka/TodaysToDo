@@ -174,12 +174,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         todoTextField.becomeFirstResponder()
     }
     
-    // ボタンのドラッグ
-    @IBAction func dragingAddButton(_ sender: UIPanGestureRecognizer) {
-        let addButton = sender.view!
-        addButton.center = sender.location(in: self.view)
-    }
-    
     // キーボード出現
     @IBAction func showKeyboard(_ sender: Any) {
         selectKeyboard = 1
