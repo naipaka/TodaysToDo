@@ -347,9 +347,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } catch {
         }
         todoListTableView.reloadData()
-        
-        // ボタンの位置をリセット
-        showKeyboardButton.center = view.center
     }
     
     // 初めてタスクを追加した時に通知の許可を取得
