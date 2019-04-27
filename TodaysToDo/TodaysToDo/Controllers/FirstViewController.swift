@@ -120,6 +120,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // ToDoの編集中に編集対象のタスクを削除するとエラーになる
         // そのため、削除した際は、キーボードを下げる処理を実装
         todoTextField.text = ""
+        todoListTableView.reloadData()
         view.endEditing(true)
     }
     
