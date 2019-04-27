@@ -15,7 +15,7 @@ class TutorialFirstViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descriptionLabel.text = "【Inbox画面】タスクを思いつく度どんどん追加していきましょう！真ん中の「＋」ボタンを押すとタスクを追加できます。"
+        descriptionLabel.text = "【Inbox画面】タスクを思いつく度どんどん追加していきましょう！右上の「＋」ボタンを押すとタスクを追加できます。"
         //表示可能最大行数を指定
         descriptionLabel.numberOfLines = 10
         //contentsのサイズに合わせてobujectのサイズを変える
