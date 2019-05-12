@@ -26,6 +26,7 @@ class DatePickerKeyboard: UITextField {
         datePicker.date = Date()
         datePicker.datePickerMode = .dateAndTime
         datePicker.locale = Locale(identifier: "ja")
+        datePicker.minuteInterval = 10
         datePicker.addTarget(self, action: #selector(setText), for: .valueChanged)
         
         // textFieldのtextに日付を表示する
