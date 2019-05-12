@@ -11,15 +11,18 @@ import UIKit
 class TutorialSeventhViewController: UIViewController {
 
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        descriptionLabel.text = "日付を設定したタスクの設定日時を変えたいときは下のToDo一覧から対象のタスクをスライドしてInbox画面に戻しましょう。チュートリアルは以上です！"
+        descriptionLabel.text = "タスクの設定日時を変えたいときはカレンダー下の一覧から対象のタスクをスライドしてInbox画面に戻しましょう。チュートリアルは以上です！"
         //表示可能最大行数を指定
         descriptionLabel.numberOfLines = 10
         //contentsのサイズに合わせてobujectのサイズを変える
         descriptionLabel.sizeToFit()
+        
+        doneButton.layer.cornerRadius = 10
     }
     
     @IBAction func closeButton(_ sender: Any) {
