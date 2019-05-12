@@ -82,6 +82,15 @@ class SecondViewController: UIViewController , UITableViewDelegate, UITableViewD
     
     // 他画面から遷移した時にTableのデータを再読み込みする
     func didSelectTab(tabBarController: TabBarController) {
+        
+        // Realmからデータを取得
+        do {
+            let realm = try Realm()
+            let predicate = NSPredicate(format: "%@ =< startDateTime AND startDateTime < %@", getBeginingAndEndOfToday().beginingOfToday as CVarArg, getBeginingAndEndOfToday().endOfToday as CVarArg)
+            todaysTodoList = realm.objects(ToDo.self).filter(predicate).sorted(byKeyPath: "startDateTime")
+        } catch {
+        }
+        
         todaysToDoTableView.reloadData()
     }
     

@@ -120,6 +120,7 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         // ToDoの編集中に編集対象のタスクを削除するとエラーになる
         // そのため、削除した際は、キーボードを下げる処理を実装
         todoTextField.text = ""
+        todoListTableView.reloadData()
         view.endEditing(true)
     }
     
@@ -171,12 +172,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         addButton.setTitle("変更", for: .normal)
         selectKeyboard = 1
         todoTextField.becomeFirstResponder()
-    }
-    
-    // ボタンのドラッグ
-    @IBAction func dragingAddButton(_ sender: UIPanGestureRecognizer) {
-        let addButton = sender.view!
-        addButton.center = sender.location(in: self.view)
     }
     
     // キーボード出現
@@ -352,9 +347,6 @@ class FirstViewController: UIViewController, UITableViewDelegate, UITableViewDat
         } catch {
         }
         todoListTableView.reloadData()
-        
-        // ボタンの位置をリセット
-        showKeyboardButton.center = view.center
     }
     
     // 初めてタスクを追加した時に通知の許可を取得

@@ -11,6 +11,7 @@ import UIKit
 class TutorialSeventhViewController: UIViewController {
 
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var doneButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,8 @@ class TutorialSeventhViewController: UIViewController {
         descriptionLabel.numberOfLines = 10
         //contentsのサイズに合わせてobujectのサイズを変える
         descriptionLabel.sizeToFit()
+        
+        doneButton.layer.cornerRadius = 10
     }
     
     @IBAction func closeButton(_ sender: Any) {
