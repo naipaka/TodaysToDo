@@ -60,7 +60,7 @@ class DatePickerKeyboard: UITextField {
     // datePickerの日付をtextFieldのtextに反映させる
     @objc private func setText() {
         let f = DateFormatter()
-        f.dateStyle = .long
+        f.dateStyle = .short
         f.timeStyle = .short
         f.locale = Locale(identifier: "ja")
         text = f.string(from: datePicker.date)
